@@ -1,0 +1,421 @@
+
+ 
+  
+  .photo-moi {
+    border-radius: 50%;
+    overflow: hidden;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
+    margin-right: 8%;
+  }
+  
+  .photo-moi img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  img{
+    height: 150px;
+    width: 150px;
+  }
+  
+  
+
+  .hidden{
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(-100%);
+    transition: all 3s;
+  }
+
+  .show{
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+  }
+
+  .logos{
+    width: 100%;
+    height: 100%;
+  }
+
+  .logo:nth-child(2){
+    transition-delay: 200ms;
+  }
+  .logo:nth-child(3){
+    transition-delay: 400ms;
+  }
+
+  .logo{
+    border-radius: 20px;
+    padding: 1rem;
+    margin: 0 0.5rem;
+    width: 50%;
+    height: 50%;
+  }
+
+  #pageaccueil{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  
+
+  @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Popins", sans-serif;
+  }
+  #one section{
+   height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   scroll-snap-align: start;
+
+  }
+   body{
+   background-color: #001B48;
+
+   }
+
+  .container{
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: 100vh;
+    scroll-behavior: smooth;
+  }
+  h1{
+    color: #fff;
+    text-shadow: 1px 1px 4px #000;
+  }
+
+  
+
+  .rowbloc_projet{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+  }
+
+ .columnbloc_projet{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+ }
+
+ .bloc_projet{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 15rem;
+  background-color: #02457A;
+  border-radius: 20px;
+  margin-bottom: 1.5rem;
+ }
+
+ .logo p{
+    color: #D6E8EE;
+    font-weight: bold;
+    font-size: 35px;
+}
+
+.bloc_projet p{
+  margin-bottom: 1rem;
+}
+
+.page_presenation_projet{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.title_bloc{
+  margin-bottom: 2rem;
+}
+
+button{
+  background-color: transparent;
+  border: none;
+}
+button:hover{
+  cursor: pointer;
+}
+
+.bloc_langage{
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  align-items: center;
+
+  width: 20rem;
+  height: 13rem;
+  border: 4px solid #02457A;
+  border-radius: 20px;  
+
+  box-shadow : 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  
+}
+
+.bloc_langage p{
+  color: #D6E8EE;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.bloc_langage img{
+  height: 120px;
+  width: 120px;
+}
+
+.front img, .back img{
+  height: 50px;
+  width: 50px; 
+  margin-left: 20px;
+
+}
+
+
+.front, .back{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.front{
+  margin-bottom: 20px;
+}
+
+.logo_language{
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.bloc_description{
+  position: absolute;
+  right: 30px;
+  top: 30px;
+
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  align-items: center;
+
+  width: 40%;
+  height: 40%;
+  border: 4px solid #02457A;
+  border-radius: 20px;  
+
+  box-shadow : 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  
+}
+.bloc_description p{
+    color: #D6E8EE;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.bloc_titre{
+  display: flex;
+  justify-content: top; 
+  margin-top: 5%;
+}
+
+section:first-child{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  scroll-snap-align: start;
+ }
+
+ section{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: top;
+  scroll-snap-align: start;
+ }
+
+ .avantages{
+  position: absolute;
+  top: 30px;
+  left: 30px;
+
+  width: 40%;
+  height: 40%;
+  border: 4px solid #02457A;
+  border-radius: 20px;  
+
+  box-shadow : 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+ }
+ .avantages p{
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 30%;
+ }
+
+ .progressBar{
+  margin-right: 25px;
+  margin-left: 20px;
+
+  background: #97CAD8;
+  width: 400px;
+  height: 7px;
+  border-radius: 5px;
+  box-shadow : 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+ }
+
+ .progressBar div{
+  height: 7px;
+  border-radius: 5px;
+  width: 0%; 
+ }
+
+ .progressBar div span{
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background: #001B48;
+  float: right;
+  margin-top: -20px;
+  margin-right: -20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #D6E8EE; 
+  font-weight: bold;
+  font-size: 15px;
+  box-shadow : 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  
+ }
+
+ .fonctionnalite{
+  background: #018ABE;
+  animation: fonctionnalite 3s linear forwards ;
+ }
+
+ .ergonomie{
+  background: #018ABE;
+  animation: ergonomie 3s linear forwards ;
+ }
+
+ .qualite{
+  background: #018ABE;
+  animation: qualite 3s linear forwards ;
+ }
+
+ .visuel{
+  background: #018ABE;
+  animation: visuel 3s linear forwards ;
+ }
+
+ .doc{
+  background: #018ABE;
+  animation: doc 3s linear forwards ;
+ }
+
+ .evolutivite{
+  background: #018ABE;
+  animation: evolutivite 3s linear forwards ;
+ }
+
+ .fonctionnalite span{
+  border: 3px solid #018ABE;
+ }
+
+ .ergonomie span{
+  border: 3px solid #018ABE;
+ }
+
+ .qualite span{
+  border: 3px solid #018ABE;
+ }
+
+ .visuel span{
+  border: 3px solid #018ABE;
+ }
+
+ .doc span{
+  border: 3px solid #018ABE;
+ }
+
+ .evolutivite span{
+  border: 3px solid #018ABE;
+ }
+
+ @keyframes fonctionnalite{
+    100%{
+      width: 100%;
+    }
+ }
+
+ @keyframes ergonomie{
+  100%{
+    width: 90%;
+  }
+}
+
+@keyframes qualite{
+  100%{
+    width: 80%;
+  }
+}
+
+@keyframes visuel{
+  100%{
+    width: 70%;
+  }
+}
+
+@keyframes doc{
+  100%{
+    width: 85%;
+  }
+}
+
+@keyframes evolutivite{
+  100%{
+    width: 75%;
+  }
+}
+
+.titre_progressBar{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.titre_progressBar:last-child{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 0px;
+}
+/*https://ru.pinterest.com/pin/300615343887822145/*/
