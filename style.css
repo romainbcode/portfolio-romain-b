@@ -160,8 +160,8 @@ button:hover{
   text-align: center;
   align-items: center;
 
-  width: 20rem;
-  height: 13rem;
+  width: 13rem;
+  height: 10rem;
   border: 4px solid #02457A;
   border-radius: 20px;  
 
@@ -176,8 +176,8 @@ button:hover{
 }
 
 .bloc_langage img{
-  height: 120px;
-  width: 120px;
+  height: 80px;
+  width: 80px;
 }
 
 .front img, .back img{
@@ -211,27 +211,68 @@ button:hover{
 
   display: flex;
   justify-content: space-around;
-  text-align: center;
+  text-align: justify;
   align-items: center;
 
   width: 40%;
   height: 40%;
   border: 4px solid #02457A;
   border-radius: 20px;  
-
   box-shadow : 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  
 }
+
 .bloc_description p{
     color: #D6E8EE;
     font-weight: bold;
     font-size: 20px;
+    margin: 15px;
 }
 
-.bloc_titre{
+.bloc_titre_twitter, .bloc_titre_paris{
   display: flex;
   justify-content: top; 
-  margin-top: 5%;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50%;
+  
+}
+
+.bloc_titre_twitter h1{
+  font-size: 30px;
+  font-weight: bold;
+  font-family: "Popins", sans-serif;
+  color: #D6E8EE;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  border-bottom:  solid #02457A;
+  border-bottom-width: 5px;
+  width: 50%;
+
+  display: flex;
+  justify-content: center;
+}
+
+.bloc_titre_paris h1{
+  font-size: 30px;
+  font-weight: bold;
+  font-family: "Popins", sans-serif;
+  color: #D6E8EE;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  border-bottom:  solid #02457A;
+  border-bottom-width: 5px;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+}
+
+
+
+
+.bloc_titre_twitter img, .bloc_titre_paris img{
+  height: 200px;
+  width: 200px;
 }
 
 section:first-child{
@@ -269,7 +310,7 @@ section:first-child{
  .avantages p{
   letter-spacing: 1px;
   margin-bottom: 5px;
-  color: #fff;
+  color: #D6E8EE;
   font-size: 16px;
   font-weight: bold;
 
@@ -302,6 +343,7 @@ section:first-child{
   width: 40px;
   border-radius: 50%;
   background: #001B48;
+  border: 3px solid #97CAD8;
   float: right;
   margin-top: -20px;
   margin-right: -20px;
@@ -315,34 +357,64 @@ section:first-child{
   
  }
 
- .fonctionnalite{
+ .fonctionnalite_twi{
   background: #018ABE;
-  animation: fonctionnalite 3s linear forwards ;
+  animation: cent 3s linear forwards ;
  }
 
- .ergonomie{
+ .ergonomie_twi{
   background: #018ABE;
-  animation: ergonomie 3s linear forwards ;
+  animation: neufzero 3s linear forwards ;
  }
 
- .qualite{
+ .qualite_twi{
   background: #018ABE;
-  animation: qualite 3s linear forwards ;
+  animation: huitzero 3s linear forwards ;
  }
 
- .visuel{
+ .visuel_twi{
   background: #018ABE;
-  animation: visuel 3s linear forwards ;
+  animation: septzero 3s linear forwards ;
  }
 
- .doc{
+ .doc_twi{
   background: #018ABE;
-  animation: doc 3s linear forwards ;
+  animation: huitcinq 3s linear forwards ;
  }
 
- .evolutivite{
+ .evolutivite_twi{
   background: #018ABE;
-  animation: evolutivite 3s linear forwards ;
+  animation: septcinq 3s linear forwards ;
+ }
+
+ .fonctionnalite_paris{
+  background: #018ABE;
+  animation: huitzero 3s linear forwards ;
+ }
+
+ .ergonomie_paris{
+  background: #018ABE;
+  animation: cent 3s linear forwards ;
+ }
+
+ .qualite_paris{
+  background: #018ABE;
+  animation: neufzero 3s linear forwards ;
+ }
+
+ .visuel_paris{
+  background: #018ABE;
+  animation: huitzero 3s linear forwards ;
+ }
+
+ .doc_paris{
+  background: #018ABE;
+  animation: huitcinq 3s linear forwards ;
+ }
+
+ .evolutivite_paris{
+  background: #018ABE;
+  animation: huitcinq 3s linear forwards ;
  }
 
  .fonctionnalite span{
@@ -369,37 +441,37 @@ section:first-child{
   border: 3px solid #018ABE;
  }
 
- @keyframes fonctionnalite{
+ @keyframes cent{
     100%{
       width: 100%;
     }
  }
 
- @keyframes ergonomie{
+ @keyframes neufzero{
   100%{
     width: 90%;
   }
 }
 
-@keyframes qualite{
+@keyframes huitzero{
   100%{
     width: 80%;
   }
 }
 
-@keyframes visuel{
+@keyframes septzero{
   100%{
     width: 70%;
   }
 }
 
-@keyframes doc{
+@keyframes huitcinq{
   100%{
     width: 85%;
   }
 }
 
-@keyframes evolutivite{
+@keyframes septcinq{
   100%{
     width: 75%;
   }
