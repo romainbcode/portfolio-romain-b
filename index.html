@@ -8,7 +8,6 @@
     <script defer src="script.js"></script>
 </head>
 <body>
-    
 <!----
     <section id="pageaccueil" class="hidden">
         <div class="photo-moi">
@@ -111,14 +110,14 @@
 
     <section id="parisportif" class="hidden">
         <div class="titre_avantage_incov">
-            <div class="bloc_titre_paris">
+            <div class="bloc_titre_paris" id="logo_paris">
                 <h1>Paris sportif</h1>
-                <img src="Images/pari.png">
+                <button id="bouton1"><img src="Images/pari.png"></button>
             </div>
-            <div class="avantages">
+            <div class="avantages" id="info_paris">
                 <div class ="titre_progressBar">
                     <div class="progressBar">
-                        <div class = "fonctionnalite_paris">
+                        <div class = "info_huitzero" id="info_oneybone">
                             <span>80</span>
                         </div>
                     </div>
@@ -126,7 +125,7 @@
                 </div>
                 <div class ="titre_progressBar">        
                     <div class="progressBar">
-                        <div class = "ergonomie_paris">
+                        <div class = "info_cent" id="info_oneybone">
                             <span>100</span>
                         </div>
                     </div>
@@ -134,7 +133,7 @@
                 </div>
                 <div class ="titre_progressBar">
                     <div class="progressBar">
-                        <div class = "qualite_paris">
+                        <div class = "info_neufzero" id="info_oneybone">
                             <span>90</span>
                         </div>
                     </div>
@@ -142,7 +141,7 @@
                 </div>
                 <div class ="titre_progressBar">
                     <div class="progressBar">
-                        <div class = "visuel_paris">
+                        <div class = "info_huitzero" id="info_oneybone">
                             <span>80</span>
                         </div>
                     </div>
@@ -150,7 +149,7 @@
                 </div>
                 <div class ="titre_progressBar">
                     <div class="progressBar">
-                        <div class = "doc_paris">
+                        <div class = "info_huitcinq" id="info_oneybone">
                             <span>85</span>
                         </div>
                     </div>
@@ -158,7 +157,7 @@
                 </div>
                 <div class ="titre_progressBar">
                     <div class="progressBar">
-                        <div class = "evolutivite_paris">
+                        <div class = "info_huitcinq" id="info_oneybone">
                             <span>85</span>
                         </div>
                     </div>
@@ -166,7 +165,7 @@
                 </div>
             </div>
         </div>
-        <div class="bloc_langage">
+        <div class="bloc_langage" id="info_paris_logo">
             <div class = "logo_language">
                 <div class = "front">
                     <p>Vue JS</p>
@@ -178,20 +177,252 @@
                 </div>
             </div>
         </div>       
-        <div class="bloc_description">
+        <div class="bloc_description" id="info_paris_desc">
             <p>
-                J'ai réalisé un clone de Twitter en utilisant Python pour le backend avec une API REST et Redis comme base de données. Le projet propose des fonctionnalités de tweets, recherche par sujet/auteur et retweet, avec le frontend développé en Vue.js.
+                Ce projet simule un site de paris sportif entièrement gratuit, uniquement fonctionnel avec de l'argent virtuel.<br>
+                Le backend possède une <font color="#018ABE">API Rest</font> developpé en python. Le frontend lui est développé avec <font color="#018ABE">Vuejs</font>.<br>
+                Deux bases de données ont été utilisé dans ce projet, une base de donnée non relationnelle : <font color="#018ABE">redis</font> et une base de donnée relationnelle : <font color="#018ABE">SQLiteStudio</font>.<br>
+                Ce projet possède différentes pages tels qu'une interface de connexion et d'inscription, une page d'accueil où il est possible de voir le classement et les matchs d'une journée d'un championnat. 
+                Il est également possible de voir l'historique des différents paris effectués.
             </p>
         </div> 
     </section>
 
     <section id="twitter" class="hidden">
         <div class="titre_avantage_incov">
+            <div class="bloc_titre_twitter" id="logo_twi">
+                <h1>Twitter</h1>
+                <button id="bouton2"><img src="Images/twitter.png"></button>  
+            </div>
+            <div class="avantages" id="info_twi">
+                <div class ="titre_progressBar">
+                    <div class="progressBar">
+                        <div class = "info_cent" id="info_oneybone">
+                            <span>100</span>
+                        </div>
+                    </div>
+                    <p>Fonctionnalité</p>
+                </div>
+                <div class ="titre_progressBar">  
+                    <div class="progressBar">
+                        <div class = "info_neufzero" id="info_oneybone">
+                            <span>90</span>
+                        </div>
+                    </div>
+                    <p>Ergonomie</p>
+                </div>
+                <div class ="titre_progressBar">
+                    <div class="progressBar">
+                        <div class = "info_huitzero" id="info_oneybone">
+                            <span>80</span>
+                        </div>
+                    </div>
+                    <p>Qualité du code</p>
+                </div>
+                <div class ="titre_progressBar">
+                    <div class="progressBar">
+                        <div class = "info_septzero" id="info_oneybone">
+                            <span>70</span>
+                        </div>
+                    </div>
+                    <p>Visuel</p>
+                </div>
+                <div class ="titre_progressBar">
+                    <div class="progressBar">
+                        <div class = "info_huitcinq" id="info_oneybone">
+                            <span>85</span>
+                        </div>
+                    </div>
+                    <p>Documentation</p>
+                </div>
+                <div class ="titre_progressBar">
+                    <div class="progressBar">
+                        <div class = "info_septcinq" id="info_oneybone">
+                            <span>75</span>
+                        </div>
+                    </div>
+                    <p>Evolutivité</p>
+                </div>
+            </div>
+        </div>
+        <div class="bloc_langage" id="info_twi_logo">
+            <div class = "logo_language">
+                <div class = "front">
+                    <p>Vue JS</p>
+                    <img src="Images/Vue.png">
+                </div>
+                <div class="back">
+                    <p>Python</p>
+                    <img src="Images/Python-logo-notext.svg.png">
+                </div>
+            </div>
+        </div>       
+        <div class="bloc_description" id="info_twi_desc">
+            <p>
+                Ce projet est une copie simplifié de Twitter.<br>
+                Le backend possède une API Rest developpé en python. Le frontend lui est développé avec vuejs.<br>
+                Une seule base de données a été utilisé dans ce projet : redis, une base de donnée non relationnelle.<br>
+                Ce twitter permet de twitter avec un nom d'utilisateur, de chercher des tweets avec un certains hashtag, de chercher les tweets d'une personne.<br>
+                Deux dockerfiles sont disponibles dans le dossier du github afin de pouvoir lancer ce projet gràace à des conteneurs.
+            </p>
+        </div> 
+    </section>
+
+    <section id="pokemon" class="hidden">
+        <div class="titre_avantage_incov">
+            <div class="bloc_titre_twitter" id="logo_poke">
+                <h1>Pokemon</h1>
+                <button id="bouton3"><img src="Images/pokeball.png"></button>
+                
+            </div>
+            <div class="avantages" id="info_poke">
+                <div class ="titre_progressBar">
+                    <div class="progressBar">
+                        <div class = "info_huitzero" id="info_oneybone">
+                            <span>80</span>
+                        </div>
+                    </div>
+                    <p>Fonctionnalité</p>
+                </div>
+                <div class ="titre_progressBar">  
+                    <div class="progressBar">
+                        <div class = "info_cent" id="info_oneybone">
+                            <span>100</span>
+                        </div>
+                    </div>
+                    <p>Ergonomie</p>
+                </div>
+                <div class ="titre_progressBar">
+                    <div class="progressBar">
+                        <div class = "info_septzero" id="info_oneybone">
+                            <span>70</span>
+                        </div>
+                    </div>
+                    <p>Qualité du code</p>
+                </div>
+                <div class ="titre_progressBar">
+                    <div class="progressBar">
+                        <div class = "info_huitcinq" id="info_oneybone">
+                            <span>85</span>
+                        </div>
+                    </div>
+                    <p>Visuel</p>
+                </div>
+                <div class ="titre_progressBar">
+                    <div class="progressBar">
+                        <div class = "info_huitcinq" id="info_oneybone">
+                            <span>85</span>
+                        </div>
+                    </div>
+                    <p>Documentation</p>
+                </div>
+                <div class ="titre_progressBar">
+                    <div class="progressBar">
+                        <div class = "info_neufzero" id="info_oneybone">
+                            <span>90</span>
+                        </div>
+                    </div>
+                    <p>Evolutivité</p>
+                </div>
+            </div>
+        </div>
+        <div class="bloc_langage" id="info_poke_logo">
+            <div class = "logo_language">
+                <div class = "front" id="javaimg">
+                    <p>Java</p>
+                    <img src="Images/java_logo.png">
+                </div>
+            </div>
+        </div>       
+        <div class="bloc_description" id="info_poke_desc">
+            <p>
+                J'ai réalisé un clone de Twitter en utilisant Python pour le backend avec une API REST et Redis comme base de données. Le projet propose des fonctionnalités de tweets, recherche par sujet/auteur et retweet, avec le frontend développé en Vue.js.
+            </p>
+        </div> 
+    </section>
+
+    <section id="boulderShark" class="hidden">
+        <div class="titre_avantage_incov">
+            <div class="bloc_titre_twitter" id="logo_boulder">
+                <h1>boulderShark</h1>
+                <button id="bouton4"><img src="Images/requin.png"></button>
+                
+            </div>
+            <div class="avantages" id="info_boulder">
+                <div class ="titre_progressBar">
+                    <div class="progressBar">
+                        <div class = "info_cent" id="info_oneybone">
+                            <span>100</span>
+                        </div>
+                    </div>
+                    <p>Fonctionnalité</p>
+                </div>
+                <div class ="titre_progressBar">  
+                    <div class="progressBar">
+                        <div class = "info_septcinq" id="info_oneybone">
+                            <span>75</span>
+                        </div>
+                    </div>
+                    <p>Ergonomie</p>
+                </div>
+                <div class ="titre_progressBar">
+                    <div class="progressBar">
+                        <div class = "info_septzero" id="info_oneybone">
+                            <span>70</span>
+                        </div>
+                    </div>
+                    <p>Qualité du code</p>
+                </div>
+                <div class ="titre_progressBar">
+                    <div class="progressBar">
+                        <div class = "info_septzero" id="info_oneybone">
+                            <span>70</span>
+                        </div>
+                    </div>
+                    <p>Visuel</p>
+                </div>
+                <div class ="titre_progressBar">
+                    <div class="progressBar">
+                        <div class = "info_huitzero" id="info_oneybone">
+                            <span>80</span>
+                        </div>
+                    </div>
+                    <p>Documentation</p>
+                </div>
+                <div class ="titre_progressBar">
+                    <div class="progressBar">
+                        <div class = "info_cinqzero" id="info_oneybone">
+                            <span>50</span>
+                        </div>
+                    </div>
+                    <p>Evolutivité</p>
+                </div>
+            </div>
+        </div>
+        <div class="bloc_langage" id="info_boulder_logo">
+            <div class = "logo_language">
+                <div class = "front_htmlcssjs">
+                    <p>HTML/CSS/Js</p>
+                    <img id="htmlcssjsimg" src="Images/logo_html_css_js.png">
+                </div>
+            </div>
+        </div>       
+        <div class="bloc_description" id="info_boulder_desc">
+            <p>
+                J'ai réalisé un clone de Twitter en utilisant Python pour le backend avec une API REST et Redis comme base de données. Le projet propose des fonctionnalités de tweets, recherche par sujet/auteur et retweet, avec le frontend développé en Vue.js.
+            </p>
+        </div> 
+    </section>
+
+    <section id="appmobile" class="hidden">
+        <h1>Applications Android && Apple</h1>
+        <div class="titre_avantage_incov">
             <div class="bloc_titre_twitter">
                 <h1>Twitter</h1>
-                <img src="Images/twitter.png">
+                <button id="bouton"><img src="Images/twitter.png"></button>
+                
             </div>
-            <div class="avantages">
+            <div class="avantages" id="infos">
                 <div class ="titre_progressBar">
                     <div class="progressBar">
                         <div class = "fonctionnalite_twi">
@@ -261,28 +492,85 @@
         </div> 
     </section>
 
-    <section id="pokemon" class="hidden">
-        <h1>Pokemon</h1>
-        <p>fdeifuierhfuiehfehfehfhefiehfiehfuiheeu</p>
-    </section>
-
-    <section id="boulderShark" class="hidden">
-        <h1>Boulder Shark</h1>
-        <h2>Mes projets</h2>
-        <p>fdeifuierhfuiehfehfehfhefiehfiehfuiheeu</p>
-    </section>
-
-    <section id="appmobile" class="hidden">
-        <h1>Applications Android && Apple</h1>
-        <p>fdeifuierhfuiehfehfehfhefiehfiehfuiheeu</p>
-    </section>
-
 
     
 
     <section id="vinted" class="hidden">
-        <h1>Bot Vinted</h1>
-        <p>Une brève description de vous et de vos compétences.</p>
+        <h1>Bot Vinted/Flutter</h1>
+        <div class="titre_avantage_incov">
+            <div class="bloc_titre_twitter">
+                <h1>Twitter</h1>
+                <button id="bouton"><img src="Images/twitter.png"></button>
+                
+            </div>
+            <div class="avantages" id="infos">
+                <div class ="titre_progressBar">
+                    <div class="progressBar">
+                        <div class = "fonctionnalite_twi">
+                            <span>100</span>
+                        </div>
+                    </div>
+                    <p>Fonctionnalité</p>
+                </div>
+                <div class ="titre_progressBar">  
+                    <div class="progressBar">
+                        <div class = "ergonomie_twi">
+                            <span>90</span>
+                        </div>
+                    </div>
+                    <p>Ergonomie</p>
+                </div>
+                <div class ="titre_progressBar">
+                    <div class="progressBar">
+                        <div class = "qualite_twi">
+                            <span>80</span>
+                        </div>
+                    </div>
+                    <p>Qualité du code</p>
+                </div>
+                <div class ="titre_progressBar">
+                    <div class="progressBar">
+                        <div class = "visuel_twi">
+                            <span>70</span>
+                        </div>
+                    </div>
+                    <p>Visuel</p>
+                </div>
+                <div class ="titre_progressBar">
+                    <div class="progressBar">
+                        <div class = "doc_twi">
+                            <span>85</span>
+                        </div>
+                    </div>
+                    <p>Documentation</p>
+                </div>
+                <div class ="titre_progressBar">
+                    <div class="progressBar">
+                        <div class = "evolutivite_twi">
+                            <span>75</span>
+                        </div>
+                    </div>
+                    <p>Evolutivité</p>
+                </div>
+            </div>
+        </div>
+        <div class="bloc_langage">
+            <div class = "logo_language">
+                <div class = "front">
+                    <p>Vue JS</p>
+                    <img src="Images/Vue.png">
+                </div>
+                <div class="back">
+                    <p>Python</p>
+                    <img src="Images/Python-logo-notext.svg.png">
+                </div>
+            </div>
+        </div>       
+        <div class="bloc_description">
+            <p>
+                J'ai réalisé un clone de Twitter en utilisant Python pour le backend avec une API REST et Redis comme base de données. Le projet propose des fonctionnalités de tweets, recherche par sujet/auteur et retweet, avec le frontend développé en Vue.js.
+            </p>
+        </div> 
     </section>
    </div>
 
