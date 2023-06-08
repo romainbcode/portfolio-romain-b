@@ -1,5 +1,3 @@
-
-
 /* Animation lorsque l'on se trouve dans une certaine section */
 const observer = new IntersectionObserver((entries)=>{
     entries.forEach((entry)=>{
@@ -73,6 +71,7 @@ bouton3.addEventListener('click', function() {
 const info_boulder = document.getElementById('info_boulder');
 const info_boulder_logo = document.getElementById('info_boulder_logo');
 const info_boulder_desc = document.getElementById('info_boulder_desc');
+const info_boulder_photo = document.getElementById('info_boulder_photo');
 const boulder_logo_anim = document.getElementById('logo_boulder');
 const bouton4 = document.getElementById('bouton4');
 
@@ -85,6 +84,69 @@ bouton4.addEventListener('click', function() {
     info_boulder.style.display = "flex";
     info_boulder_logo.style.display = "flex";
     info_boulder_desc.style.display = "flex";
+    info_boulder_photo.style.display = "flex";
 });
+
+var position_photo_boulder = 1;
+var nbre_photo_boulder = 4;
+const bouton_fleche_gauche = document.getElementById("fleche_gauche");
+const bouton_fleche_droite = document.getElementById("fleche_droite");
+var photo_boulder = document.getElementById("photo_boulder");
+
+
+
+bouton_fleche_gauche.addEventListener('click', function(){
+    if(position_photo_boulder-1>0){
+        console.log("photo avant" + position_photo_boulder);
+        position_photo_boulder = position_photo_boulder - 1;
+        console.log(position_photo_boulder);
+        photo_boulder.style.backgroundImage = "url(Images/bouldershark2.png)";
+
+    }else{
+        console.log("pas de photo avant");
+        console.log(position_photo_boulder);
+    }
+})
+bouton_fleche_droite.addEventListener('click', function(){
+    if(position_photo_boulder+1<=nbre_photo_boulder){
+        console.log("photo apres" + position_photo_boulder);
+        position_photo_boulder = position_photo_boulder + 1;
+        console.log(position_photo_boulder);
+        photo_boulder.style.backgroundImage = "url(Images/x-mark.png)";
+    }else{
+        console.log("pas de photo apres");
+        console.log(position_photo_boulder);
+    }
+})
+
+
+const bloc_photo_boulder = document.getElementById("info_boulder_photo");
+
+const croix = document.getElementById("croix");
+
+photo_boulder.addEventListener('click', function(){
+    bouton_fleche_gauche.style.display = "inline-block";
+    bouton_fleche_droite.style.display = "inline-block";
+    bloc_photo_boulder.style.position = "absolute";
+    bloc_photo_boulder.style.left = "50%";
+    bloc_photo_boulder.style.top = "50%";
+    bloc_photo_boulder.style.width = "70%";
+    bloc_photo_boulder.style.height = "70%";   
+    bloc_photo_boulder.style.transform = "translate(-50%, -50%)";
+    croix.style.display = "flex";
+})
+
+croix.addEventListener('click', function(){
+    bouton_fleche_gauche.style.display = "none";
+    bouton_fleche_droite.style.display = "none";
+    bloc_photo_boulder.style.position = "absolute";
+    bloc_photo_boulder.style.bottom = "30px";
+    bloc_photo_boulder.style.left = "200px";
+    bloc_photo_boulder.style.width = "50%";
+    bloc_photo_boulder.style.height = "45%";  
+    bloc_photo_boulder.style.transform = "translate(0%, 0%)"; 
+    croix.style.display = "none";
+    photo_boulder.style.backgroundImage = "url(Images/bouldershark2.png)";
+})
 
 
