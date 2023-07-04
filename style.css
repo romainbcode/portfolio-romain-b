@@ -1,23 +1,83 @@
-.photo-moi {
-  border-radius: 50%;
-  overflow: hidden;
-  width: 200px;
-  height: 200px;
-  margin-bottom: 20px;
-  margin-right: 8%;
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+#robot{
+  display: flex;
+  height: 50px;
+  width: 50px;
+  background-color: red;
+  position: absolute;
 }
 
-.photo-moi img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+canvas{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+#touche_clavier{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  top: 5%; 
+  left: 5%;
+  color: #D6E8EE;
+  width: 140px;
+  height: 180px;
+  border-radius: 20px;  
+  box-shadow : 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: #001B48;
+}
+
+.gauche_clavier, .droite_clavier, .saut_clavier{
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  margin-left: 10px;
+}
+.gauche_clavier, .droite_clavier{
+  margin-bottom: 10px;
+}
+
+#skip_boite_mystere{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 10px; 
+  right: 10px;
+  color: #D6E8EE;
+  width: 150px;
+  height: 50px;
+  border-radius: 20px;  
+  box-shadow : 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: #001B48;
+  cursor: pointer
+}
+
+#parti_info_first_page{
+  display: none;
+}
+
+
+.gauche_clavier img, .droite_clavier img, .saut_clavier img{
+  height: 50px;
+  width: 50px;
 }
 
 img{
   height: 150px;
   width: 150px;
 }
-
 
 
 .hidden{
@@ -38,12 +98,13 @@ img{
   height: 100%;
 }
 
+.logo:nth-child(1){
+  transition-delay: 0ms;
+}
 .logo:nth-child(2){
   transition-delay: 200ms;
 }
-.logo:nth-child(3){
-  transition-delay: 200ms;
-}
+
 
 .logo{
   border-radius: 20px;
@@ -59,24 +120,60 @@ img{
   justify-content: center;
 }
 
-
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Popins", sans-serif;
-}
 #one section{
   height: 100vh;
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   scroll-snap-align: start;
-
 }
+
+.photo-moi {
+  border-radius: 50%;
+  position: absolute;
+  left : 0%;
+  top: 50%;
+  transform: translate(50%,-50%);
+  overflow: hidden;
+  width: 300px;
+  height: 300px;
+  margin-bottom: 20px;
+  margin-right: 8%;
+  box-shadow : 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.photo-moi img {
+  
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  mix-blend-mode: color-burn;
+}
+
+.blocdescription_moi{
+  color : #D6E8EE;
+  position: absolute;
+  top: 50%;
+  right: 0%;
+  transform : translate(-50%, -50%);
+}
+
+.blocdescription_nom{
+  display: flex;
+  justify-content: center;
+  color : #D6E8EE;
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  transform : translate(-50%, -5%);
+  font-size: 40px;
+  width: 1000px;
+  
+}
+
+
+
   body{
   background-color: #001B48;
 
@@ -147,148 +244,121 @@ button:hover{
 cursor: pointer;
 }
 
+/* bloc langage dev DEBUT*/
 .bloc_langage{
-position: absolute;
-bottom: 30px;
-right: 30px;
-
-justify-content: space-around;
-text-align: center;
-align-items: center;
-
-width: 13rem;
-height: 10rem;
-border: 4px solid #02457A;
-border-radius: 20px;  
-
-box-shadow : 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  justify-content: space-around;
+  text-align: center;
+  align-items: center;
+  width: 13rem;
+  height: 10rem;
+  border: 4px solid #02457A;
+  border-radius: 20px;  
+  box-shadow : 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .bloc_langage p{
-color: #D6E8EE;
+  color: #D6E8EE;
   font-weight: bold;
   font-size: 20px;
 }
 
 .bloc_langage img{
-height: 80px;
-width: 80px;
-}
-
-.front img, .back img{
-height: 50px;
-width: 50px; 
-margin-left: 20px;
-
-}
-
-#javaimg img{
-width: 50px;
-height: 75px;
-}
-
-#htmlcssjsimg{
-width:150px;
-height: 75px;
-}
-
-
-
-.front, .back{
-display: flex;
-flex-direction: row;
-align-items: center;
-}
-
-.front{
-margin-bottom: 20px;
-}
-.front_htmlcssjs{
-display: flex;
-flex-direction: column;
-align-items: center;
-}
-.front_htmlcssjs p{
-margin-bottom: 10px;
+  height: 80px;
+  width: 80px;
 }
 
 .logo_language{
-display: flex;
-flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
+.front, .back{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.front img, .back img{
+  height: 50px;
+  width: 50px; 
+  margin-left: 20px;
+}
+
+#javaimg img{
+  width: 50px;
+  height: 75px;
+}
+
+#htmlcssjsimg{
+  width:150px;
+  height: 75px;
+}
+
+.front_htmlcssjs{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.front_htmlcssjs p{
+  margin-bottom: 10px;
+}
+/* bloc langage dev FIN*/
+
+/* bloc description projet DEBUT*/
 .bloc_description{
-position: absolute;
-right: 30px;
-top: 30px;
-
-display: flex;
-justify-content: space-around;
-text-align: justify;
-align-items: center;
-
-width: 40%;
-height: 40%;
-border: 4px solid #02457A;
-border-radius: 20px;  
-box-shadow : 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
-
+  position: absolute;
+  right: 30px;
+  top: 30px;
+  display: flex;
+  justify-content: space-around;
+  text-align: justify;
+  align-items: center;
+  width: 40%;
+  height: 40%;
+  border: 4px solid #02457A;
+  border-radius: 20px;  
+  box-shadow : 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .bloc_description p{
   color: #D6E8EE;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 14px;
   margin: 15px;
 }
+/* bloc description projet FIN*/
 
-.bloc_titre_twitter, .bloc_titre_paris{
-display: flex;
-justify-content: top; 
-flex-direction: column;
-align-items: center;
-margin-top: 100%;
+/* bloc page (titre+logo) avant clique sur logo DEBUT*/
+.bloc_titre_twitter, .bloc_titre_paris, .bloc_titre_boulder, .bloc_titre_poke, .bloc_titre_autreprojet{
+  display: flex;
+  justify-content: top; 
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100%;
 }
 
-.bloc_titre_twitter h1{
-font-size: 30px;
-font-weight: bold;
-font-family: "Popins", sans-serif;
-color: #D6E8EE;
-padding-bottom: 10px;
-margin-bottom: 20px;
-border-bottom:  solid #02457A;
-border-bottom-width: 5px;
-width: 50%;
-
-display: flex;
-justify-content: center;
+.bloc_titre_twitter h1, .bloc_titre_paris h1, .bloc_titre_boulder h1, .bloc_titre_poke h1, .bloc_titre_autreprojet h1{
+  font-size: 30px;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+  color: #D6E8EE;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  border-bottom:  solid #02457A;
+  border-bottom-width: 5px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
-.bloc_titre_paris h1{
-font-size: 30px;
-font-weight: bold;
-font-family: "Popins", sans-serif;
-color: #D6E8EE;
-padding-bottom: 10px;
-margin-bottom: 20px;
-border-bottom:  solid #02457A;
-border-bottom-width: 5px;
-width: 100%;
-
-display: flex;
-justify-content: center;
+.bloc_titre_twitter img, .bloc_titre_paris img, .bloc_titre_boulder img, .bloc_titre_poke img{
+  height: 200px;
+  width: 200px;
 }
-
-
-
-
-.bloc_titre_twitter img, .bloc_titre_paris img{
-height: 200px;
-width: 200px;
-}
+/* bloc page (titre+logo) avant clique sur logo FIN*/
 
 section:first-child{
 height: 100vh;
@@ -306,171 +376,178 @@ align-items: top;
 scroll-snap-align: start;
 }
 
+/* bloc notes sur les différents aspects des projets DEBUT*/
 .avantages{
-position: absolute;
-top: 30px;
-left: 30px;
-
-width: 40%;
-height: 40%;
-border: 4px solid #02457A;
-border-radius: 20px;  
-
-box-shadow : 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
-display: flex;
-flex-direction: column;
-justify-content: center;
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  width: 40%;
+  height: 40%;
+  border: 4px solid #02457A;
+  border-radius: 20px;  
+  box-shadow : 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .avantages p{
-letter-spacing: 1px;
-margin-bottom: 5px;
-color: #D6E8EE;
-font-size: 16px;
-font-weight: bold;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+  color: #D6E8EE;
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+}
 
-display: flex;
-justify-content: center;
-align-items: center;
-
-width: 30%;
+.titre_progressBar{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 20px;
+}
+  
+.titre_progressBar:last-child{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 0px;
 }
 
 .progressBar{
-margin-right: 25px;
-margin-left: 20px;
-
-background: #97CAD8;
-width: 400px;
-height: 7px;
-border-radius: 5px;
-box-shadow : 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-right: 25px;
+  margin-left: 20px;
+  background: #97CAD8;
+  width: 400px;
+  height: 7px;
+  border-radius: 5px;
+  box-shadow : 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .progressBar div{
-height: 7px;
-border-radius: 5px;
-width: 0%; 
+  height: 7px;
+  border-radius: 5px;
+  width: 0%; 
 }
 
 .progressBar div span{
-height: 40px;
-width: 40px;
-border-radius: 50%;
-background: #001B48;
-border: 3px solid #97CAD8;
-float: right;
-margin-top: -20px;
-margin-right: -20px;
-display: flex;
-align-items: center;
-justify-content: center;
-color: #D6E8EE; 
-font-weight: bold;
-font-size: 15px;
-box-shadow : 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background: #001B48;
+  border: 3px solid #97CAD8;
+  float: right;
+  margin-top: -20px;
+  margin-right: -20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #D6E8EE; 
+  font-weight: bold;
+  font-size: 15px;
+  box-shadow : 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-#info_boulder_photo{
+#info_oneybone span{
+  border: 3px solid #018ABE;
+}
+/* bloc notes sur les différents aspects des projets FIN*/
+
+/* bloc avec les photos des projets DEBUT*/
+#info_boulder_photo, #info_paris_photo, #info_twi_photo{
   position: absolute;
-  bottom: 30px;
-  left: 200px;
-  
-  width: 50%;
-  height: 45%;
-  border: 4px solid #02457A;
+  bottom: 0px;
+  left: 50%;
+  transform : translate(-50%, -5%);
+  width: 600px;
+  height: calc(600px*0.56);
   border-radius: 20px;  
-  
   box-shadow : 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  
+  background-color: #001B48;
   display: flex;
   flex-direction: column;
   justify-content: center;
   cursor: pointer;
-  }
+}
 
-#info_twi, #info_twi_desc ,#info_twi_logo{
-display: none;
+
+#info_poke_photo, #info_muscu_photo{
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform : translate(-50%, -5%);
+  width: 500px;
+  height: calc(600px*0.60);
+  border-radius: 20px;  
+  box-shadow : 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: #001B48;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
 }
-#info_paris, #info_paris_desc, #info_paris_logo{
-display: none;
+/* bloc avec les photos des projets FIN*/ 
+
+/* bloc rend invisble les projets avant de cliquer sur le bouton DEBUT*/
+#info_twi, #info_twi_desc ,#info_twi_logo, #info_twi_photo{
+  display: none;
 }
-#info_poke, #info_poke_desc, #info_poke_logo{
-display: none;
+#info_paris, #info_paris_desc, #info_paris_logo, #info_paris_photo{
+  display: none;
+}
+#info_poke, #info_poke_desc, #info_poke_logo, #info_poke_photo{
+  display: none;
 }
 #info_boulder, #info_boulder_desc, #info_boulder_logo, #info_boulder_photo{
-display: none;
+  display: none;
 }
+#info_muscu, #info_muscu_desc, #info_muscu_logo, #info_muscu_photo{
+  display: none;
+}
+#info_autreproj1, #info_autreproj2, #info_autreproj3{
+  display: none;
+}
+/* bloc rend invisble les projets avant de cliquer sur le bouton FIN*/
 
+/* parti pour les notes attribués sur les projets DEBUT*/
 .info_cent{
-background: #018ABE;
-animation: cent 3s linear forwards ;
+  background: #018ABE;
+  animation: cent 3s linear forwards;
 }
 
 .info_neufzero{
-background: #018ABE;
-animation: neufzero 3s linear forwards ;
+  background: #018ABE;
+  animation: neufzero 3s linear forwards;
 }
 
 .info_huitzero{
-background: #018ABE;
-animation: huitzero 3s linear forwards ;
+  background: #018ABE;
+  animation: huitzero 3s linear forwards;
 }
 
 .info_septzero{
-background: #018ABE;
-animation: septzero 3s linear forwards ;
+  background: #018ABE;
+  animation: septzero 3s linear forwards;
 }
 
 .info_huitcinq{
-background: #018ABE;
-animation: huitcinq 3s linear forwards ;
+  background: #018ABE;
+  animation: huitcinq 3s linear forwards;
 }
 
 .info_septcinq{
-background: #018ABE;
-animation: septcinq 3s linear forwards ;
+  background: #018ABE;
+  animation: septcinq 3s linear forwards;
 }
 .info_cinqzero{
-background: #018ABE;
-animation: cinqzero 3s linear forwards ;
+  background: #018ABE;
+  animation: cinqzero 3s linear forwards;
 }
+/* parti pour les notes attribués sur les projets FIN*/
 
-#info_oneybone span{
-border: 3px solid #018ABE;
-}
-
-@keyframes opacityAnimation { 
-0% {
-  opacity: 0;
-}
-
-100% {
-  opacity: 1;
-}
-}
-
-@keyframes InverseOpacityAnimation { 
-0% {
-  opacity: 1;
-}
-
-100% {
-  opacity: 0;
-}
-}
-
-@keyframes logoAnimation { 
-0% {
-  margin-top: 100%;
-}
-
-100% {
-  margin-top: 25%;
-}
-}
-
+/* parti pour les animations des notes DEBUT*/
 @keyframes cent{
   100%{
     width: 100%;
@@ -478,117 +555,262 @@ border: 3px solid #018ABE;
 }
 
 @keyframes neufzero{
-100%{
-  width: 90%;
-}
+  100%{
+    width: 90%;
+  }
 }
 
 @keyframes huitzero{
-100%{
-  width: 80%;
-}
+  100%{
+    width: 80%;
+  }
 }
 
 @keyframes septzero{
-100%{
-  width: 70%;
-}
+  100%{
+    width: 70%;
+  }
 }
 
 @keyframes huitcinq{
-100%{
-  width: 85%;
-}
+  100%{
+    width: 85%;
+  }
 }
 
 @keyframes septcinq{
-100%{
-  width: 75%;
-}
+  100%{
+    width: 75%;
+  }
 }
 
 @keyframes cinqzero{
-100%{
-  width: 50%;
+  100%{
+    width: 50%;
+  }
 }
-}
+/* parti pour les animations des notes FIN*/
 
-.titre_progressBar{
-display: flex;
-flex-direction: row;
-align-items: center;
-margin-bottom: 20px;
-}
-
-.titre_progressBar:last-child{
-display: flex;
-flex-direction: row;
-align-items: center;
-margin-bottom: 0px;
-}
-/*https://ru.pinterest.com/pin/300615343887822145/*/
-
-
-
-  .bloc_photo_projet img{
-    position:relative;
-    width: 100%;
-    height: 100%;
-    border-radius: 20px;  
+/* parti pour les animations invisible/visible et mouvement DEBUT*/
+@keyframes opacityAnimation { 
+  0% {
+    opacity: 0;
   }
 
-  .bloc_fleche{
-    position: absolute;
-    
-    width: 50px;
-    height: 50px;
-    padding: 5px;
-    opacity: 0.3;
-  }
-
-  .bloc_croix{
-    position: absolute;
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-  }
-  
-  #croix{
-    display: none;
-    right: 0;
-    top: 0;
-    opacity: 0.5;
-  }
-  #croix:hover{
-    cursor: pointer;
+  100% {
     opacity: 1;
   }
-  
-  #fleche_gauche{
-    transform: rotate(180deg);
-  }
-  #fleche_droite{
-    right: 0;
-  }
-  #fleche_gauche, #fleche_droite{
-    display: none;
-  }
-  #fleche_gauche:hover, #fleche_droite:hover{
-    cursor: pointer;
+}
+
+@keyframes InverseOpacityAnimation { 
+  0% {
     opacity: 1;
   }
-  #photo_boulder{
-    position:relative;
-    width: 100%;
-    height: 100%;
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes logoAnimation { 
+  0% {
+    margin-top: 100%;
+  }
+
+  100% {
+    margin-top: 25%;
+  }
+}
+/* parti pour les animations invisible/visible et mouvement FIN*/
+
+/* bloc photo projet + fleche + croix + texte en dessous DEBUT*/
+.bloc_photo_projet img{
+  position:relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;  
+}
+
+.bloc_fleche{
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  padding: 5px;
+  opacity: 0.3;
+}
+
+.bloc_croix{
+  position: absolute;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+}
+  
+#croix_paris, #croix_twi, #croix_poke, #croix_boulder{
+  display: none;
+  right: 0;
+  top: 0;
+  opacity: 0.5;
+}
+#croix_paris:hover, #croix_twi:hover, #croix_poke:hover, #croix_boulder:hover{
+  cursor: pointer;
+  opacity: 1;
+}
+#fleche_gauche_paris, #fleche_gauche_twi, #fleche_gauche_poke, #fleche_gauche_boulder{
+  transform: rotate(180deg);
+  left: 0;
+}
+#fleche_droite_paris, #fleche_droite_twi, #fleche_droite_poke, #fleche_droite_boulder{
+  right: 0;
+}
+#fleche_gauche_paris, #fleche_droite_paris, #fleche_gauche_twi, #fleche_droite_twi, #fleche_gauche_poke, #fleche_droite_poke, #fleche_gauche_boulder, #fleche_droite_boulder{
+  display: none;
+}
+#fleche_gauche_paris:hover, #fleche_droite_paris:hover, #fleche_gauche_twi:hover, #fleche_droite_twi:hover, #fleche_gauche_poke:hover, #fleche_droite_poke:hover, #fleche_gauche_boulder:hover, #fleche_droite_boulder:hover{
+  cursor: pointer;
+  opacity: 1;
+}
+
+.photo_projet_90{
+  width: 90%;
+    height: 90%;
     border-radius: 20px;  
-    background-image: url("Images/bouldershark2.png");
+    background-image: url("Images/bouldershark1.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100% 100%;
-  }
+    position: absolute;
+    left: 5%;
+}
 
+.photo_projet_95{
+  width: 95%;
+  height: 95%;
+  border-radius: 20px;  
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  position: absolute;
+  left: 2.5%;
+}
 
+#photo_boulder{ 
+  background-image: url("Images/bouldershark1.png");
+}
+#photo_paris{
+  background-image: url("Images/paris1.png");
+}
+#photo_twi{
+  background-image: url("Images/twitter1.png"); 
+}
+#photo_poke{
+  background-image: url("Images/poke1.png");
+}
 
- 
+#text_info_imageparis, #text_info_imagetwi, #text_info_imagepoke, #text_info_imageboulder{
+  position: absolute;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  bottom: -7%;
+  color: #D6E8EE;
+}
+/* bloc photo projet + fleche + croix + texte en dessous FIN*/
+
+.bloc_num_photo{
+  position: absolute;
+  bottom: 0%;
+  width: 100%;
+}
+
+/* bloc pour les autres projets DEBUT*/
+.bloc_autreprojet{
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#titre_photo_autreproj1, #titre_photo_autreproj2, #titre_photo_autreproj3{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#titre_photo_autreproj1 img{
+  position: absolute;
+  right: 0;
+  width: 80px;
+  height: 80px;
+  margin-right: 5%;
+}
+#titre_photo_autreproj2 img{
+  position: absolute;
+  left: 0;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-left: 5%;
+}
+#titre_photo_autreproj3 img{
+  position: absolute;
+  bottom: 0;
+  width: 80px;
+  height: 80px;
+  margin-bottom: 5%;
+}
+
+#texte_autreproj1, #texte_autreproj2, #texte_autreproj3{
+  display: none;
+  color: #D6E8EE;
+  font-weight: bold;
+  font-size: 18px;
+  margin: 15px;
+}
+
+.bloc_description_autreproj{
+  justify-content: space-around;
+  text-align: justify;
+  align-items: center;
+  width: 35%;
+  height: 35%;
+  border: 4px solid #02457A;
+  border-radius: 20px;  
+  box-shadow : 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  color: #D6E8EE;
+  font-weight: bold;
+  font-size: 18px; 
+}
+
+#description_autreproj1{
+  position: absolute;
+  top: 0%;
+  right: 3%;
+  transform : translate(-0%, 50%);
+  display: flex;  
+  cursor: pointer;
+}
+#description_autreproj2{
+  position: absolute;
+  top: 0%;
+  left: 3%;
+  transform : translate(-0%, 50%);
+  display: flex;
+  cursor: pointer;
+}
+#description_autreproj3{
+  position: absolute;
+  bottom: 3%;
+  left: 0%;
+  transform : translate(75%, 0%);
+  display: flex; 
+  cursor: pointer;
+  width: 40%;
+  height: 40%;
+}
+/* bloc pour les autres projets FIN*/
+
+    
   
