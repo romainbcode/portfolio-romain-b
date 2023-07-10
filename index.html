@@ -9,7 +9,6 @@
 </head>
 <body>
    <div class="container">
-    
     <section id="one" class="hidden firstpage">
         <canvas></canvas>
         <div id="touche_clavier">
@@ -26,8 +25,11 @@
                 <p> : Saut </p>
             </div>
         </div>
+        <div id="titre_minijeu">
+            <p>Touchez la boite mystere pour accéder au Portfolio.<br>(ou passez le mini jeu)</p>
+        </div>
         <div id="skip_boite_mystere"> 
-            <p>Passer le mini jeu</p>
+            <p>Cliquez pour passer le mini jeu<br> et accédez au reste du portfolio</p>
         </div>
 
         <div id="parti_info_first_page">
@@ -46,7 +48,9 @@
                 </div>
             </div>
         </div>
-        
+        <div class="page_number_actuelle">
+            Page : 1/7
+        </div>
 
     </section>
     
@@ -61,25 +65,32 @@
             <div class="rowbloc_projet">
                 <div class="logo hidden columnbloc_projet">
                         <div class="bloc_projet">
-                            <p>Boulder Shark</p>
+                            <p class="titre_projet">Boulder Shark</p>
                             <img src="Images/requin.png">
+                            <p class="page_number">Page : 2</p>
                         </div>
-                        <div class="bloc_projet">
-                            <p>Pokemon</p>
+                        <div href="pokemon" class="bloc_projet">
+                            <p class="titre_projet">Pokemon</p>
                             <img src="Images/pokeball.png">
+                            <p class="page_number">Page : 3</p>
                         </div>
                 </div>
                 <div class="logo hidden columnbloc_projet">
-                        <div class="bloc_projet">
-                            <p>Paris Sportif</p>
+                        <div href ="parisportif" class="bloc_projet">
+                            <p class="titre_projet">Paris Sportif</p>
                             <img src="Images/pari.png">
+                            <p class="page_number">Page : 4</p>
                         </div>
-                        <div class="bloc_projet">
-                            <p>Twitter</p>
+                        <div href="twitter" class="bloc_projet">
+                            <p class="titre_projet">Twitter</p>
                             <img src="Images/twitter.png">
+                            <p class="page_number">Page : 5</p>
                         </div>
                 </div>
             </div>  
+        </div>
+        <div class="page_number_actuelle">
+            Page : 2/7
         </div>
     </section>
 
@@ -90,7 +101,10 @@
         <div class="titre_avantage_incov">
             <div class="bloc_titre_paris" id="logo_paris">
                 <h1>Paris sportif</h1>
-                <button id="bouton1"><img src="Images/pari.png"></button>
+                <div id="bloc_photo_logo_paris" class="bloc_photo_logo_projet">
+                    <button id="bouton1"><img src="Images/pari.png"></button>
+                </div>
+                <p id="texte_clique_logo_paris">Cliquez pour avoir plus</p>
             </div>
             <div class="avantages" id="info_paris">
                 <div class ="titre_progressBar">
@@ -157,30 +171,36 @@
         </div>       
         <div class="bloc_description" id="info_paris_desc">
             <p>
-                Ce projet simule un site de paris sportif entièrement gratuit, uniquement fonctionnel avec de l'argent virtuel.<br>
+                Ce projet simule un site de paris sportifs entièrement gratuit, uniquement fonctionnel avec de l'argent virtuel.<br>
                 Le backend possède une <font color="#018ABE">API Rest</font> developpé en <font color="#018ABE">python</font>. Le frontend lui est développé avec <font color="#018ABE">Vuejs</font>.<br>
-                Deux bases de données ont été utilisé dans ce projet, une base de donnée non relationnelle : <font color="#018ABE">redis</font> et une base de donnée relationnelle : <font color="#018ABE">SQLiteStudio</font>.<br>
-                Ce projet possède différentes pages tels qu'une <font color="#018ABE">interface de connexion et d'inscription</font>, <font color="#018ABE">une page d'accueil</font> où il est possible de voir le classement et les matchs d'une journée d'un championnat.<br>
+                Deux bases de données ont été utilisées dans ce projet, une base de donnée non relationnelle : <font color="#018ABE">redis</font> et une base de donnée relationnelle : <font color="#018ABE">SQLiteStudio</font>.<br>
+                Ce projet possède différentes pages telle qu'une <font color="#018ABE">interface de connexion et d'inscription</font>, <font color="#018ABE">une page d'accueil</font> où il est possible de voir le classement et les matchs d'une journée d'un championnat.<br>
                 Il est également possible de voir <font color="#018ABE">l'historique</font> des différents paris effectués.
             </p>
         </div> 
         <div class="bloc_photo_projet" id="info_paris_photo">
             <div class = "photo_projet_95" id="photo_paris"></div>
             <div class = "bloc_croix" id="croix_paris"><img src="Images/x-mark.png"></div>
-            <div class = "bloc_fleche" id="fleche_gauche_paris"><img src="Images/fleche.jpeg"></div>
-            <div class = "bloc_fleche" id="fleche_droite_paris"><img src="Images/fleche.jpeg"></div>
+            <div class = "bloc_fleche" id="fleche_gauche_paris"><img src="Images/fleche.png"></div>
+            <div class = "bloc_fleche" id="fleche_droite_paris"><img src="Images/fleche.png"></div>
             <div class="bloc_num_photo">
                
             </div>
             <div id="text_info_imageparis"></div>
         </div> 
+        <div class="page_number_actuelle">
+            Page : 3/7
+        </div>
     </section>
 
     <section id="twitter" class="hidden">
         <div class="titre_avantage_incov">
             <div class="bloc_titre_twitter" id="logo_twi">
                 <h1>Twitter</h1>
-                <button id="bouton2"><img src="Images/twitter.png"></button>  
+                <div id="bloc_photo_logo_twitter" class="bloc_photo_logo_projet">
+                    <button id="bouton2"><img src="Images/twitter.png"></button>  
+                </div>
+                <p id="texte_clique_logo_twitter">Cliquez pour avoir plus</p>
             </div>
             <div class="avantages" id="info_twi">
                 <div class ="titre_progressBar">
@@ -247,31 +267,36 @@
         </div>       
         <div class="bloc_description" id="info_twi_desc">
             <p>
-                Ce projet est une copie simplifié de Twitter.<br>
+                Ce projet est une copie simplifiée de Twitter.<br>
                 Le backend possède une <font color="#018ABE">API Rest</font> developpé en <font color="#018ABE">python</font>.<br>
                 Le frontend lui est développé avec <font color="#018ABE">vuejs</font>.<br>
-                Une seule base de données a été utilisé dans ce projet : <font color="#018ABE">redis</font>, une base de donnée non relationnelle.<br>
-                Ce Twitter permet de <font color="#018ABE">"twitter"</font> avec un nom d'utilisateur, de chercher des tweets avec un <font color="#018ABE">certains sujet (hastag)</font>, de chercher les tweets <font color="#018ABE">d'une personne</font>.<br>
+                Une seule base de données a été utilisée dans ce projet : <font color="#018ABE">redis</font>, une base de donnée non relationnelle.<br>
+                Ce Twitter permet de <font color="#018ABE">"twitter"</font> avec un nom d'utilisateur, de chercher des tweets avec un <font color="#018ABE">certain sujet (hastag)</font>, de chercher les tweets <font color="#018ABE">d'une personne</font>.<br>
                 Deux <font color="#018ABE">dockerfiles</font> sont disponibles dans le dossier du github afin de pouvoir lancer ce projet grâce à des conteneurs.
             </p>
         </div> 
         <div class="bloc_photo_projet" id="info_twi_photo">
             <div class = "photo_projet_95" id="photo_twi"></div>
             <div class = "bloc_croix" id="croix_twi"><img src="Images/x-mark.png"></div>
-            <div class = "bloc_fleche" id="fleche_gauche_twi"><img src="Images/fleche.jpeg"></div>
-            <div class = "bloc_fleche" id="fleche_droite_twi"><img src="Images/fleche.jpeg"></div>
+            <div class = "bloc_fleche" id="fleche_gauche_twi"><img src="Images/fleche.png"></div>
+            <div class = "bloc_fleche" id="fleche_droite_twi"><img src="Images/fleche.png"></div>
             <div class="bloc_num_photo">
             </div>
             <div id="text_info_imagetwi"></div>
         </div> 
+        <div class="page_number_actuelle">
+            Page : 4/7
+        </div>
     </section>
 
     <section id="pokemon" class="hidden">
         <div class="titre_avantage_incov">
             <div class="bloc_titre_poke" id="logo_poke">
                 <h1>Pokemon</h1>
-                <button id="bouton3"><img src="Images/pokeball.png"></button>
-                
+                <div id="bloc_photo_logo_pokemon" class="bloc_photo_logo_projet">
+                    <button id="bouton3"><img src="Images/pokeball.png"></button>
+                </div>
+                <p id="texte_clique_logo_pokemon">Cliquez pour avoir plus</p>
             </div>
             <div class="avantages" id="info_poke">
                 <div class ="titre_progressBar">
@@ -336,7 +361,7 @@
             <p>
                 Ce projet Pokemon a été réalisé en <font color="#018ABE">Java</font>.<br>
                 Il est possible de se <font color="#018ABE">promener et d'intéragir</font> avec certains élements de la carte.<br>
-                Vous pouvez avoir accès à votre <font color="#018ABE">pokedex</font>, vous <font color="#018ABE">soignez</font> au centre pokemon ou encore vous faire <font color="#018ABE">agresser</font> par des pokemons dans les hautes herbes.<br>
+                Vous pouvez avoir accès à votre <font color="#018ABE">pokedex</font>, vous <font color="#018ABE">soigner</font> au centre pokemon ou encore vous faire <font color="#018ABE">agresser</font> par des pokemons dans les hautes herbes.<br>
                 Les combats pokemons ont lieu dans l'invité de commande.<br>
                 Un <font color="#018ABE">système d'expérience</font> (jusqu'au niveau 3) et un <font color="#018ABE">système de point de vie</font> sont disponibles.<br>
                 Il est également possible de <font color="#018ABE">sauvegarder votre partie</font>. Ce processus écrira des informations clés de votre progression telles que votre niveau, localisation, ... dans un fichier texte. Ainsi, il sera possible, en lisant ce fichier texte, de <font color="#018ABE">relancer cette partie</font> ultérieurement.
@@ -345,20 +370,25 @@
         <div class="bloc_photo_projet" id="info_poke_photo">
             <div class = "photo_projet_90" id="photo_poke"></div>
             <div class = "bloc_croix" id="croix_poke"><img src="Images/x-mark.png"></div>
-            <div class = "bloc_fleche" id="fleche_gauche_poke"><img src="Images/fleche.jpeg"></div>
-            <div class = "bloc_fleche" id="fleche_droite_poke"><img src="Images/fleche.jpeg"></div>
+            <div class = "bloc_fleche" id="fleche_gauche_poke"><img src="Images/fleche.png"></div>
+            <div class = "bloc_fleche" id="fleche_droite_poke"><img src="Images/fleche.png"></div>
             <div class="bloc_num_photo">
             </div>
             <div id="text_info_imagepoke"></div>
         </div> 
-         
+        <div class="page_number_actuelle">
+            Page : 5/7
+        </div>
     </section>
 
     <section id="boulderShark" class="hidden">
         <div class="titre_avantage_incov">
             <div class="bloc_titre_boulder" id="logo_boulder">
                 <h1>boulderShark</h1>
-                <button id="bouton4"><img src="Images/requin.png"></button>
+                <div id="bloc_photo_logo_boulder" class="bloc_photo_logo_projet">
+                    <button id="bouton4"><img src="Images/requin.png"></button>
+                </div>
+                <p id="texte_clique_logo_boulder">Cliquez pour avoir plus</p>
             </div>
             <div class="avantages" id="info_boulder">
                 <div class ="titre_progressBar">
@@ -431,19 +461,26 @@
         <div class="bloc_photo_projet" id="info_boulder_photo">
                 <div class = "photo_projet_90" id="photo_boulder"></div>
                 <div class = "bloc_croix" id="croix_boulder"><img src="Images/x-mark.png"></div>
-                <div class = "bloc_fleche" id="fleche_gauche_boulder"><img src="Images/fleche.jpeg"></div>
-                <div class = "bloc_fleche" id="fleche_droite_boulder"><img src="Images/fleche.jpeg"></div>
+                <div class = "bloc_fleche" id="fleche_gauche_boulder"><img src="Images/fleche.png"></div>
+                <div class = "bloc_fleche" id="fleche_droite_boulder"><img src="Images/fleche.png"></div>
                 <div class="bloc_num_photo">
                    
                 </div>
                 <div id="text_info_imageboulder"></div>
         </div> 
+        <div class="page_number_actuelle">
+            Page : 6/7
+        </div>
     </section>
+
     <section id="autreProjet" class="hidden">
         <div class="titre_avantage_incov">
             <div class="bloc_titre_autreprojet" id="logo_autreprojet">
                 <h1>Autres projets</h1>
-                <button id="bouton5"><img src="Images/more.png"></button>
+                <div id="bloc_photo_logo_autreprojet" class="bloc_photo_logo_projet">
+                    <button id="bouton5"><img src="Images/more.png"></button>
+                </div>
+                <p id="texte_clique_logo_autreproj">Cliquez pour avoir plus</p>
             </div>
         </div>
         <div class="bloc_autreprojet" id="info_autreproj1">
@@ -464,7 +501,7 @@
                     <img id="photoautreproj2" src="Images/vinted_logo.png">
                 </div>
                 <p id="texte_autreproj2">
-                    J'ai créé un bot informatique qui avait la capacité de détecter les articles nouvellement publiés sur Vinted et de m'envoyer des notifications via des messages provenant d'un bot Discord. Cependant, malheureusement, le fonctionnement du bot a été affecté suite à la mise en place d'une protection anti-bot par Vinted.
+                    J'ai créé un bot informatique qui avait la capacité de détecter les articles nouvellement publiés sur Vinted et de m'envoyer des notifications via des messages provenant d'un bot Discord. Cependant, le fonctionnement du bot a été affecté suite à la mise en place d'une protection anti-bot par Vinted.
                 </p>
             </div>
         </div>
@@ -475,9 +512,12 @@
                     <img id="photoautreproj3" src="Images/weightlifter.png">
                 </div>
                 <p id="texte_autreproj3">
-                    J'ai réalisé un projet en Flutter axé sur le domaine de la musculation, conçu pour être utilisé à la fois sur mobile et sur le web. Cette application offre la possibilité de visualiser une variété d'exercices spécifiques pour différents groupes musculaires. Elle comprend une section dédiée aux différents types d'entraînements, ainsi qu'une partie consacrée à l'alimentation, qui joue un rôle essentiel dans le domaine de la musculation.
+                    J'ai réalisé un projet en Flutter axé sur le domaine de la musculation, conçu pour être utilisé à la fois sur mobile et sur le web. Cette application offre la possibilité de visualiser une variété d'exercices spécifiques pour différents groupes musculaires. Elle comprend une section dédiée aux différents types d'entraînement, ainsi qu'une partie consacrée à l'alimentation, qui joue un rôle essentiel dans le domaine de la musculation.
                 </p>
             </div>
+        </div>
+        <div class="page_number_actuelle">
+            Page : 7/7
         </div>
     </section>
    </div>
