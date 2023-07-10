@@ -1,6 +1,7 @@
 const info_firstpage = document.getElementById("parti_info_first_page")
 const info_touche_clavier = document.getElementById("touche_clavier")
 const skip_boite_mystere = document.getElementById("skip_boite_mystere")
+const titre_minijeu = document.getElementById("titre_minijeu")
 
 skip_boite_mystere.addEventListener('click', function() {
     info_firstpage.style.display = "flex"
@@ -8,12 +9,13 @@ skip_boite_mystere.addEventListener('click', function() {
     canvas.style.display = "none"
     info_touche_clavier.style.display = "none"
     skip_boite_mystere.style.display = "none"
+    titre_minijeu.style.display = "none"
 })
 
 const canvas = document.querySelector('canvas');
 const c = canvas.getContext('2d');
 
-canvas.width = 1920
+canvas.width = 1400
 canvas.height = 1080
 
 const gravity = 0.5;
@@ -129,6 +131,7 @@ class Player extends Sprite{
             canvas.style.display = "none"
             info_touche_clavier.style.display = "none"
             skip_boite_mystere.style.display = "none"
+            titre_minijeu.style.display = "none"
         }
         else{
             this.surleSol = false
@@ -298,8 +301,13 @@ const paris_logo_anim = document.getElementById('logo_paris');
 const bouton1 = document.getElementById('bouton1');
 const photo_paris = document.getElementById("photo_paris");
 
+const texte_clique_logo_paris = document.getElementById("texte_clique_logo_paris");
+const bloc_photo_logo_paris = document.getElementById("bloc_photo_logo_paris");
+
 bouton1.addEventListener('click', function() {
-    paris_logo_anim.style.marginTop = "25%";
+    paris_logo_anim.style.bottom = "0";
+    paris_logo_anim.style.left = "0";
+    paris_logo_anim.style.transform = "translate(50%, 50%)";
     paris_logo_anim.style.animation = "opacityAnimation 5s 1";
     info_paris.style.animation = "opacityAnimation 3s 1";
     info_paris_logo.style.animation = "opacityAnimation 3s 1";
@@ -309,7 +317,17 @@ bouton1.addEventListener('click', function() {
     info_paris_logo.style.display = "flex";
     info_paris_desc.style.display = "flex";
     info_paris_photo.style.display = "flex";
+    bloc_photo_logo_paris.style.border = "none"
+    texte_clique_logo_paris.style.display = "none"
 });
+
+bloc_photo_logo_paris.addEventListener('mouseover', (event)=>{
+    texte_clique_logo_paris.style.color = "#D6E8EE"
+})
+
+bloc_photo_logo_paris.addEventListener('mouseout', (event)=>{
+    texte_clique_logo_paris.style.color = "transparent"
+})
 
 
 const text_info_imageparis = document.getElementById("text_info_imageparis");
@@ -400,6 +418,11 @@ photo_paris.addEventListener('click', function(){
     croix_paris.style.display = "flex";
     text_info_imageparis.style.display = "flex";
     text_info_imageparis.innerHTML = text1_paris;
+    //info_paris.style.opacity = 0.5;
+    info_paris_logo.style.filter = "blur(1.5rem)";
+    info_paris_desc.style.filter = "blur(1.5rem)";
+    paris_logo_anim.style.filter = "blur(1.5rem)";
+    info_paris.style.filter = "blur(1.5rem)";
 })
 
 croix_paris.addEventListener('click', function(){
@@ -414,6 +437,10 @@ croix_paris.addEventListener('click', function(){
     croix_paris.style.display = "none";
     photo_paris.style.backgroundImage = "url(Images/paris1.png)";
     text_info_imageparis.style.display = "none";
+    info_paris_logo.style.filter = "blur(0)";
+    info_paris_desc.style.filter = "blur(0)";
+    paris_logo_anim.style.filter = "blur(0)";
+    info_paris.style.filter = "blur(0)";
 })
 
 /* Animations pour la page sur le projet Twitter */
@@ -424,8 +451,14 @@ const twi_logo_anim = document.getElementById('logo_twi');
 const bouton2 = document.getElementById('bouton2');
 const photo_twi = document.getElementById("photo_twi");
 
+const texte_clique_logo_twitter = document.getElementById("texte_clique_logo_twitter");
+const bloc_photo_logo_twitter = document.getElementById("bloc_photo_logo_twitter");
+
+
 bouton2.addEventListener('click', function() {
-    twi_logo_anim.style.marginTop = "25%";
+    twi_logo_anim.style.bottom = "0";
+    twi_logo_anim.style.left = "0";
+    twi_logo_anim.style.transform = "translate(50%, 50%)";
     twi_logo_anim.style.animation = "opacityAnimation 5s 1";
     info_twi.style.animation = "opacityAnimation 3s 1";
     info_twi_logo.style.animation = "opacityAnimation 3s 1";
@@ -435,7 +468,17 @@ bouton2.addEventListener('click', function() {
     info_twi_logo.style.display = "flex";
     info_twi_desc.style.display = "flex";
     info_twi_photo.style.display = "flex";
+    bloc_photo_logo_twitter.style.border = "none";
+    texte_clique_logo_twitter.style.display = "none"
 });
+
+bloc_photo_logo_twitter.addEventListener('mouseover', (event)=>{
+    texte_clique_logo_twitter.style.color = "#D6E8EE"
+})
+
+bloc_photo_logo_twitter.addEventListener('mouseout', (event)=>{
+    texte_clique_logo_twitter.style.color = "transparent"
+})
 
 const text_info_imagetwi = document.getElementById("text_info_imagetwi");
 var position_photo_twi = 1;
@@ -519,6 +562,10 @@ photo_twi.addEventListener('click', function(){
     croix_twi.style.display = "flex";
     text_info_imagetwi.style.display = "flex";
     text_info_imagetwi.innerHTML = text1_twi;
+    info_twi_logo.style.filter = "blur(1.5rem)";
+    info_twi_desc.style.filter = "blur(1.5rem)";
+    twi_logo_anim.style.filter = "blur(1.5rem)";
+    info_twi.style.filter = "blur(1.5rem)";
 })
 
 croix_twi.addEventListener('click', function(){
@@ -533,6 +580,10 @@ croix_twi.addEventListener('click', function(){
     croix_twi.style.display = "none";
     photo_twi.style.backgroundImage = "url(Images/twitter1.png)";
     text_info_imagetwi.style.display = "none";
+    info_twi_logo.style.filter = "blur(0)";
+    info_twi_desc.style.filter = "blur(0)";
+    twi_logo_anim.style.filter = "blur(0)";
+    info_twi.style.filter = "blur(0)";
 })
 
 /* Animations pour la page sur le projet Pokemon */
@@ -543,8 +594,14 @@ const poke_logo_anim = document.getElementById('logo_poke');
 const bouton3 = document.getElementById('bouton3');
 const photo_poke = document.getElementById("photo_poke");
 
+const texte_clique_logo_pokemon = document.getElementById("texte_clique_logo_pokemon");
+const bloc_photo_logo_pokemon = document.getElementById("bloc_photo_logo_pokemon");
+
+
 bouton3.addEventListener('click', function() {
-    poke_logo_anim.style.marginTop = "25%";
+    poke_logo_anim.style.bottom = "0";
+    poke_logo_anim.style.left = "0";
+    poke_logo_anim.style.transform = "translate(50%, 50%)";
     poke_logo_anim.style.animation = "opacityAnimation 5s 1";
     info_poke.style.animation = "opacityAnimation 3s 1";
     info_poke_logo.style.animation = "opacityAnimation 3s 1";
@@ -554,7 +611,17 @@ bouton3.addEventListener('click', function() {
     info_poke_logo.style.display = "flex";
     info_poke_desc.style.display = "flex";
     info_poke_photo.style.display = "flex";
+    bloc_photo_logo_pokemon.style.border = "none";
+    texte_clique_logo_pokemon.style.display = "none"
 });
+
+bloc_photo_logo_pokemon.addEventListener('mouseover', (event)=>{
+    texte_clique_logo_pokemon.style.color = "#D6E8EE"
+})
+
+bloc_photo_logo_pokemon.addEventListener('mouseout', (event)=>{
+    texte_clique_logo_pokemon.style.color = "transparent"
+})
 
 const text_info_imagepoke = document.getElementById("text_info_imagepoke");
 var position_photo_poke = 1;
@@ -631,6 +698,10 @@ photo_poke.addEventListener('click', function(){
     croix_poke.style.display = "flex";
     text_info_imagepoke.style.display = "flex";
     text_info_imagepoke.innerHTML = text1;
+    info_poke_logo.style.filter = "blur(1.5rem)";
+    info_poke_desc.style.filter = "blur(1.5rem)";
+    poke_logo_anim.style.filter = "blur(1.5rem)";
+    info_poke.style.filter = "blur(1.5rem)";
 })
 
 croix_poke.addEventListener('click', function(){
@@ -645,6 +716,10 @@ croix_poke.addEventListener('click', function(){
     croix_poke.style.display = "none";
     photo_poke.style.backgroundImage = "url(Images/poke1.png)";
     text_info_imagepoke.style.display = "none";
+    info_poke_logo.style.filter = "blur(0)";
+    info_poke_desc.style.filter = "blur(0)";
+    poke_logo_anim.style.filter = "blur(0)";
+    info_poke.style.filter = "blur(0)";
 })
 
 
@@ -658,8 +733,14 @@ const boulder_logo_anim = document.getElementById('logo_boulder');
 const bouton4 = document.getElementById('bouton4');
 const photo_boulder = document.getElementById("photo_boulder");
 
+const texte_clique_logo_boulder = document.getElementById("texte_clique_logo_boulder");
+const bloc_photo_logo_boulder = document.getElementById("bloc_photo_logo_boulder");
+
+
 bouton4.addEventListener('click', function() {
-    boulder_logo_anim.style.marginTop = "25%";
+    boulder_logo_anim.style.bottom = "0";
+    boulder_logo_anim.style.left = "0";
+    boulder_logo_anim.style.transform = "translate(50%, 50%)";
     boulder_logo_anim.style.animation = "opacityAnimation 5s 1";
     info_boulder.style.animation = "opacityAnimation 3s 1";
     info_boulder_logo.style.animation = "opacityAnimation 3s 1";
@@ -669,7 +750,17 @@ bouton4.addEventListener('click', function() {
     info_boulder_logo.style.display = "flex";
     info_boulder_desc.style.display = "flex";
     info_boulder_photo.style.display = "flex";
+    bloc_photo_logo_boulder.style.border = "none";
+    texte_clique_logo_boulder.style.display = "none"
 });
+
+bloc_photo_logo_boulder.addEventListener('mouseover', (event)=>{
+    texte_clique_logo_boulder.style.color = "#D6E8EE"
+})
+
+bloc_photo_logo_boulder.addEventListener('mouseout', (event)=>{
+    texte_clique_logo_boulder.style.color = "transparent"
+})
 
 var position_photo_boulder = 1;
 var nbre_photo_boulder = 4;
@@ -749,6 +840,10 @@ photo_boulder.addEventListener('click', function(){
     croix_boulder.style.display = "flex";
     text_info_imageboulder.style.display = "flex";
     text_info_imageboulder.innerHTML = text1;
+    info_boulder_logo.style.filter = "blur(1.5rem)";
+    info_boulder_desc.style.filter = "blur(1.5rem)";
+    boulder_logo_anim.style.filter = "blur(1.5rem)";
+    info_boulder.style.filter = "blur(1.5rem)";
 })
 
 croix_boulder.addEventListener('click', function(){
@@ -763,111 +858,11 @@ croix_boulder.addEventListener('click', function(){
     croix_boulder.style.display = "none";
     photo_boulder.style.backgroundImage = "url(Images/bouldershark1.png)";
     text_info_imageboulder.style.display = "none";
+    info_boulder_logo.style.filter = "blur(0)";
+    info_boulder_desc.style.filter = "blur(0)";
+    boulder_logo_anim.style.filter = "blur(0)";
+    info_boulder.style.filter = "blur(0)";
 })
-
-
-/* Animations pour la page sur le projet Application mobile Musculation 
-
-const info_muscu = document.getElementById('info_muscu');
-const info_muscu_logo = document.getElementById('info_muscu_logo');
-const info_muscu_desc = document.getElementById('info_muscu_desc');
-const info_muscu_photo = document.getElementById('info_muscu_photo');
-const muscu_logo_anim = document.getElementById('logo_muscu');
-const bouton5 = document.getElementById('bouton5');
-const photo_muscu = document.getElementById("photo_muscu");
-
-bouton5.addEventListener('click', function() {
-    muscu_logo_anim.style.marginTop = "25%";
-    muscu_logo_anim.style.animation = "opacityAnimation 5s 1";
-    info_muscu.style.animation = "opacityAnimation 3s 1";
-    info_muscu_logo.style.animation = "opacityAnimation 3s 1";
-    info_muscu_desc.style.animation = "opacityAnimation 3s 1";
-    photo_muscu.style.animation = "opacityAnimation 3s 1";
-    info_muscu.style.display = "flex";
-    info_muscu_logo.style.display = "flex";
-    info_muscu_desc.style.display = "flex";
-    info_muscu_photo.style.display = "flex";
-});
-
-var position_photo_muscu = 1;
-var nbre_photo_muscu = 4;
-
-
-var url_muscuphoto = "";
-var text1_muscu = "Ce jeu offre trois options de jeu : vous pouvez sélectionner l'un des trois niveaux prédéfinis en cliquant sur le bouton 'Jouer', reprendre la partie précédemment commencée, ou importer un fichier .txt contenant vos propres emplacements d'obstacles.";
-var text2_muscu = "Niveau 1. Les règles pour le jeu sont : une pierre peut être déplacée uniquement s'il n'y a rien derrière elle, une pierrre tombe s'il y a un espace vide en dessous, et le requin peut manger à la fois les herbes et les nageurs.";
-var text3_muscu = "Niveau 2. La partie se termine par une défaite si le joueur est écrasé par une pierre, et par une victoire si tous les nageurs sont mangés.";
-var text4_muscu = "Niveau 3. Sur la page, vous pouvez visualiser le nombre de déplacements effectués ainsi que le nombre de nageurs mangés et ceux qui sont encore en vie. De plus, un bouton '?' est disponible pour résumer les règles du jeu.";
-const text_info_imagemuscu = document.getElementById("text_info_imagemuscu");
-
-const bouton_fleche_gauche_muscu = document.getElementById("fleche_gauche_muscu");
-const bouton_fleche_droite_muscu = document.getElementById("fleche_droite_muscu");
-
-bouton_fleche_gauche_muscu.addEventListener('click', function(){
-    if(position_photo_muscu-1>0){
-        position_photo_muscu = position_photo_muscu - 1;
-        url_muscuphoto = "Images/bouldershark" + position_photo_muscu + ".png";
-        photo_muscu.style.backgroundImage = `url(${url_muscuphoto})`;
-        if(position_photo_muscu == 1){
-            text_info_imagemuscu.innerHTML = text1;
-        }
-        if(position_photo_muscu == 2){
-            text_info_imagemuscu.innerHTML = text2;
-        }
-        if(position_photo_muscu == 3){
-            text_info_imagemuscu.innerHTML = text3;
-        }
-    }
-})
-bouton_fleche_droite_muscu.addEventListener('click', function(){
-    if(position_photo_muscu+1<=nbre_photo_muscu){
-        position_photo_muscu = position_photo_muscu + 1;
-        url_muscuphoto = "Images/bouldershark" + position_photo_muscu + ".png";
-        photo_muscu.style.backgroundImage = `url(${url_muscuphoto})`;
-        if(position_photo_muscu == 2){
-            text_info_imagemuscu.innerHTML = text2;
-        }
-        if(position_photo_muscu == 3){
-            text_info_imagemuscu.innerHTML = text3;
-        }
-        if(position_photo_muscu == 4){
-            text_info_imagemuscu.innerHTML = text4;
-        }
-    }
-})
-
-
-const bloc_photo_muscu = document.getElementById("info_muscu_photo");
-
-const croix_muscu = document.getElementById("croix_muscu");
-
-photo_muscu.addEventListener('click', function(){
-    bouton_fleche_gauche_muscu.style.display = "inline-block";
-    bouton_fleche_droite_muscu.style.display = "inline-block";
-    bloc_photo_muscu.style.position = "absolute";
-    bloc_photo_muscu.style.left = "50%";
-    bloc_photo_muscu.style.top = "50%";
-    bloc_photo_muscu.style.width = "1000px";
-    bloc_photo_muscu.style.height = "calc(1000px*0.56)";   
-    bloc_photo_muscu.style.transform = "translate(-50%, -50%)";
-    croix_muscu.style.display = "flex";
-    text_info_imagemuscu.style.display = "flex";
-    text_info_imagemuscu.innerHTML = text1;
-})
-
-croix_muscu.addEventListener('click', function(){
-    bouton_fleche_gauche_muscu.style.display = "none";
-    bouton_fleche_droite_muscu.style.display = "none";
-    bloc_photo_muscu.style.position = "absolute";
-    bloc_photo_muscu.style.bottom = "30px";
-    bloc_photo_muscu.style.left = "50%";
-    bloc_photo_muscu.style.width = "600px";
-    bloc_photo_muscu.style.height = "calc(600px*0.56)";  
-    bloc_photo_muscu.style.transform = "translate(-50%, -5%)"; 
-    croix_muscu.style.display = "none";
-    photo_muscu.style.backgroundImage = "url(Images/bouldershark1.png)";
-    text_info_imagemuscu.style.display = "none";
-})*/
 
 /* Animations pour la page sur les autres projets */
 
@@ -891,8 +886,14 @@ const autreproj3 = document.getElementById("description_autreproj3");
 
 const autreproj_logo_anim = document.getElementById('logo_autreprojet');
 
+const texte_clique_logo_autreproj = document.getElementById("texte_clique_logo_autreproj");
+const bloc_photo_logo_autreprojet = document.getElementById("bloc_photo_logo_autreprojet");
+
+
 bouton5.addEventListener('click', function() {
-    autreproj_logo_anim.style.marginTop = "25%";
+    autreproj_logo_anim.style.top = "0%";
+    autreproj_logo_anim.style.left = "50%";
+    autreproj_logo_anim.style.transform = "translate(-50%, 20%)";
     autreproj_logo_anim.style.animation = "opacityAnimation 5s 1";
     info_autreproj1.style.display = "flex";
     info_autreproj2.style.display = "flex";
@@ -903,7 +904,17 @@ bouton5.addEventListener('click', function() {
     autreproj1.style.display = "flex";
     autreproj2.style.display = "flex";
     autreproj3.style.display = "flex";
+    bloc_photo_logo_autreprojet.style.border = "none";
+    texte_clique_logo_autreproj.style.display = "none"
 });
+
+bloc_photo_logo_autreprojet.addEventListener('mouseover', (event)=>{
+    texte_clique_logo_autreproj.style.color = "#D6E8EE"
+})
+
+bloc_photo_logo_autreprojet.addEventListener('mouseout', (event)=>{
+    texte_clique_logo_autreproj.style.color = "transparent"
+})
 
 autreproj1.addEventListener('click', function(){
     if(titre_photo_autreproj1.style.display == "none"){
