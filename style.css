@@ -7,6 +7,8 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;  
 }
+
+
 #robot{
   display: flex;
   height: 50px;
@@ -19,10 +21,14 @@ canvas{
   position: absolute;
   left: 0;
   bottom: 0;
-
 }
 
-#titre_minijeu{
+.titre_avantage_incov{
+  display: flex;
+  align-items: center;
+}
+
+.titre_minijeu{
   color: #D6E8EE;
   width: auto;
   height: 55px;
@@ -36,7 +42,7 @@ canvas{
 }
 
 
-#touche_clavier{
+.touche_clavier{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -62,7 +68,7 @@ canvas{
   margin-bottom: 10px;
 }
 
-#skip_boite_mystere{
+.skip_boite_mystere{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -80,7 +86,7 @@ canvas{
   box-shadow : 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   background-color: #001B48;
 }
-#skip_boite_mystere :hover{
+.skip_boite_mystere :hover{
   width: 20rem;
   height: 50px;
   border-radius: 20px;  
@@ -88,7 +94,7 @@ canvas{
   cursor: pointer;
 }
 
-#parti_info_first_page{
+.parti_info_first_page{
   display: none;
 }
 
@@ -115,26 +121,17 @@ img{
 .hidden{
   opacity: 0;
   filter: blur(5px);
-  transform: translateX(-100%);
-  transition: all 3s;
 }
 
 .show{
   opacity: 1;
   filter: blur(0);
-  transform: translateX(0);
 }
 
 .logos{
   width: 100%;
   height: 100%;
-}
-
-.logo:nth-child(1){
-  transition-delay: 0ms;
-}
-.logo:nth-child(2){
-  transition-delay: 200ms;
+  margin-top: 4%;
 }
 
 
@@ -145,6 +142,8 @@ img{
   width: 50%;
   height: 50%;
 }
+
+
 
 #pageaccueil{
   display: flex;
@@ -240,26 +239,73 @@ display: flex;
 justify-content: center;
 align-items: center;
 flex-direction: column;
-height: 15rem;
-background-color: #02457A;
+height: 11rem;
+width: 100%;
 border-radius: 20px;
 margin-bottom: 1.5rem;
 box-shadow : 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.titre_projet{
-  color: #D6E8EE;
-  font-weight: bold;
-  font-size: 35px;
+.bloc_projet a{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+#info_in_bloc_projet_boulder, #info_in_bloc_projet_pokemon, #info_in_bloc_projet_paris, #info_in_bloc_projet_twitter, #info_in_bloc_projet_autreproj{
+  display: none;
+  flex-direction: column;
+}
+
+a{
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border: 4px solid #02457A;
+  background-color: #001B48;
+  border-radius: 20px;  
+  box-shadow : 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+}
+
+a:hover{
+  background-color: #00215a;
+}
+.bloc_projet5{
+  position: inherit;
+  bottom: 0;
+  left: 50%;
+  width: 50%;
+  transform: translate(50%, 0);
+  margin-left: 10px;
+}
+
+
+
+
+.bloc_projet img{
+  width: 120px;
+  height: 120px;
+  position: inherit;
+  bottom: 0;
+  left: 0%;
 }
 
 .bloc_projet p{
-margin-bottom: 1rem;
+  margin-bottom: 1rem;
+  color: #D6E8EE;
+}
+
+.titre_projet{
+  font-size: 30px;
+  margin-top: 20px;
 }
 
 .page_number{
   font-size: 15px;
-  color: #D6E8EE;
 }
 
 .page_presenation_projet{
@@ -267,10 +313,6 @@ display: flex;
 justify-content: center;
 align-items: center;
 flex-direction: column;
-}
-
-.title_bloc{
-margin-bottom: 2rem;
 }
 
 button{
@@ -350,13 +392,13 @@ cursor: pointer;
 
 /* bloc description projet DEBUT*/
 .bloc_description{
-  position: absolute;
-  right: 30px;
-  top: 30px;
   display: flex;
   justify-content: space-around;
   text-align: justify;
   align-items: center;
+  position: absolute;
+  right: 30px;
+  top: 30px;
   width: 40%;
   height: 40%;
   border: 4px solid #02457A;
@@ -378,10 +420,7 @@ cursor: pointer;
   justify-content: top; 
   flex-direction: column;
   align-items: center;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform : translate(-50%, 50%);
+  
 }
 
 .bloc_titre_twitter h1, .bloc_titre_paris h1, .bloc_titre_boulder h1, .bloc_titre_poke h1, .bloc_titre_autreprojet h1{
@@ -471,7 +510,10 @@ scroll-snap-align: start;
   align-items: center;
   margin-bottom: 20px;
 }
-  
+.titre_progressBar p{
+  text-align: center;
+}
+
 .titre_progressBar:last-child{
   display: flex;
   flex-direction: row;
@@ -533,6 +575,10 @@ scroll-snap-align: start;
   flex-direction: column;
   justify-content: center;
   cursor: pointer;
+}
+
+#info_paris_photo:hover, #info_twi_photo:hover, #info_poke_photo:hover, #info_boulder_photo:hover, #description_autreproj1:hover, #description_autreproj1:hover, #description_autreproj2:hover, #description_autreproj3:hover {
+  background-color: #02457A;
 }
 
 
@@ -770,15 +816,15 @@ scroll-snap-align: start;
 }
 
 #text_info_imageparis, #text_info_imagetwi, #text_info_imagepoke, #text_info_imageboulder{
-  position: absolute;
   display: none;
   justify-content: center;
-  align-items: center;
-  text-align: center;
-  width: 100%;
-  bottom: -7%;
+  align-items: end;
+  text-align:justify;
+  width: 70%;
+  height: 100%;
   color: #D6E8EE;
 }
+
 /* bloc photo projet + fleche + croix + texte en dessous FIN*/
 
 .bloc_num_photo{
@@ -887,4 +933,67 @@ scroll-snap-align: start;
   .front img, .back img{
     margin-left: 0px;
   }
+
+  .bloc_description p{
+    font-size: 13px;
+  }
+  .titre_progressBar p{
+    font-size: 15px;
+  }
+  .progressBar{
+    width: 100%;
+    height: 7px;
+  }
+
 }
+
+@media only screen and (max-width: 1000px) {
+  .bloc_description p{
+    font-size: 12.5px;
+  }
+  .titre_progressBar p{
+    font-size: 13px;
+  }
+  .progressBar{
+    width: 70%;
+    height: 7px;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .bloc_description p{
+    font-size: 12.1px;
+  }
+  .titre_progressBar p{
+    font-size: 12px;
+  }
+  .progressBar{
+    width: 60%;
+    height: 7px;
+  }
+}
+
+@media only screen and (max-width: 890px) {
+  .titre_progressBar p{
+    font-size: 10px;
+  }
+  .progressBar{
+    width: 50%;
+    height: 7px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  /* Affiche le logo du projet quand la taille est < 600px DEBUT*/
+  .bloc_projet p{
+    display: none;
+  }
+  .bloc_projet a{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  /* Affiche le logo du projet quand la taille est < 600px FIN*/
+
+}
+
