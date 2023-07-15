@@ -8,10 +8,12 @@
     <script defer src="script.js"></script>
 </head>
 <body>
+
    <div class="container">
+    
     <section id="one" class="hidden firstpage">
         <canvas></canvas>
-        <div id="touche_clavier">
+        <div class="touche_clavier">
             <div class="gauche_clavier">
                 <img src="Images/letter-q.png">
                 <p> : Gauche </p>
@@ -25,14 +27,14 @@
                 <p> : Saut </p>
             </div>
         </div>
-        <div id="titre_minijeu">
+        <div class="titre_minijeu">
             <p>Touchez la boite mystere pour accéder au Portfolio.<br>(ou passez le mini jeu)</p>
         </div>
-        <div id="skip_boite_mystere"> 
+        <div class="skip_boite_mystere"> 
             <p>Cliquez pour passer le mini jeu<br> et accédez au reste du portfolio</p>
         </div>
 
-        <div id="parti_info_first_page">
+        <div class="parti_info_first_page">
             <div class="photo-moi">
                 <img src="Images/boy_big.png">
             </div>
@@ -56,38 +58,64 @@
     
 
     <section id="two" class="hidden page_presenation_projet">
-        
-        <div class ="title_bloc">
-            <h1>Liste des projets</h1>
-        </div>
-
         <div class="logos">
             <div class="rowbloc_projet">
                 <div class="logo hidden columnbloc_projet">
-                        <div class="bloc_projet">
-                            <p class="titre_projet">Boulder Shark</p>
-                            <img src="Images/requin.png">
-                            <p class="page_number">Page : 2</p>
+                        <div class="bloc_projet bloc_projet1">
+                            <a href ="#parisportif">
+                                <img src="Images/pari.png">
+                                <div id="info_in_bloc_projet_paris">
+                                    <p class="titre_projet"><b>Paris Sportif</b></p>
+                                    <p class="page_number">Page : 3</p>
+                                    <p>Cliquez pour en savoir plus</p>
+                                </div>
+                            </a>
                         </div>
-                        <div href="pokemon" class="bloc_projet">
-                            <p class="titre_projet">Pokemon</p>
-                            <img src="Images/pokeball.png">
-                            <p class="page_number">Page : 3</p>
+                        <div class="bloc_projet bloc_projet2">
+                            <a href="#pokemon">
+                                <img src="Images/pokeball.png">
+                                <div id="info_in_bloc_projet_pokemon">
+                                    <p class="titre_projet"><b>Pokemon</b></p>
+                                    <p class="page_number">Page : 5</p>
+                                    <p>Cliquez pour en savoir plus</p>
+                                </div>
+                            </a>
                         </div>
                 </div>
                 <div class="logo hidden columnbloc_projet">
-                        <div href ="parisportif" class="bloc_projet">
-                            <p class="titre_projet">Paris Sportif</p>
-                            <img src="Images/pari.png">
-                            <p class="page_number">Page : 4</p>
+                        <div class="bloc_projet bloc_projet3">
+                            <a href="#twitter">
+                                <img src="Images/twitter.png">
+                                <div id="info_in_bloc_projet_twitter">
+                                    <p class="titre_projet"><b>Twitter</b></p>
+                                    <p class="page_number">Page : 4</p>
+                                    <p>Cliquez pour en savoir plus</p>
+                                </div>
+                            </a>
                         </div>
-                        <div href="twitter" class="bloc_projet">
-                            <p class="titre_projet">Twitter</p>
-                            <img src="Images/twitter.png">
-                            <p class="page_number">Page : 5</p>
+                        <div class="bloc_projet bloc_projet4">
+                            <a href="#boulderShark">
+                                <img src="Images/requin.png">
+                                <div id="info_in_bloc_projet_boulder">
+                                    <p class="titre_projet"><b>Boulder Shark</b></p>
+                                    <p class="page_number">Page : 6</p>
+                                    <p>Cliquez pour en savoir plus</p>
+                                </div>
+                            </a>
                         </div>
                 </div>
+                
             </div>  
+            <div class="bloc_projet bloc_projet5">
+                <a href="#autreProjet">
+                    <img src="Images/more.png">
+                    <div id="info_in_bloc_projet_autreproj">
+                        <p class="titre_projet"><b>Autre projets</b></p>
+                        <p class="page_number">Page : 7</p>
+                        <p>Cliquez pour en savoir plus</p>
+                    </div>
+                </a>
+            </div>
         </div>
         <div class="page_number_actuelle">
             Page : 2/7
@@ -99,17 +127,17 @@
 
     <section id="parisportif" class="hidden">
         <div class="titre_avantage_incov">
-            <div class="bloc_titre_paris" id="logo_paris">
-                <h1>Paris sportif</h1>
-                <div id="bloc_photo_logo_paris" class="bloc_photo_logo_projet">
+            <div class="bloc_titre_paris">
+                <h1 id="titre_logo_paris">Paris sportif</h1>
+                <div class="bloc_photo_logo_projet" id="bloc_photo_logo_paris">
                     <button id="bouton1"><img src="Images/pari.png"></button>
                 </div>
-                <p id="texte_clique_logo_paris">Cliquez pour avoir plus</p>
+                <p id="texte_clique_logo_paris">Cliquez pour en savoir plus</p>
             </div>
             <div class="avantages" id="info_paris">
                 <div class ="titre_progressBar">
                     <div class="progressBar">
-                        <div class = "info_huitzero" id="info_oneybone">
+                        <div class = "info_huitzero info_oneybone">
                             <span>80</span>
                         </div>
                     </div>
@@ -117,7 +145,7 @@
                 </div>
                 <div class ="titre_progressBar">        
                     <div class="progressBar">
-                        <div class = "info_cent" id="info_oneybone">
+                        <div class = "info_cent info_oneybone">
                             <span>100</span>
                         </div>
                     </div>
@@ -125,7 +153,7 @@
                 </div>
                 <div class ="titre_progressBar">
                     <div class="progressBar">
-                        <div class = "info_neufzero" id="info_oneybone">
+                        <div class = "info_neufzero info_oneybone">
                             <span>90</span>
                         </div>
                     </div>
@@ -133,7 +161,7 @@
                 </div>
                 <div class ="titre_progressBar">
                     <div class="progressBar">
-                        <div class = "info_huitzero" id="info_oneybone">
+                        <div class = "info_huitzero info_oneybone">
                             <span>80</span>
                         </div>
                     </div>
@@ -141,7 +169,7 @@
                 </div>
                 <div class ="titre_progressBar">
                     <div class="progressBar">
-                        <div class = "info_huitcinq" id="info_oneybone">
+                        <div class = "info_huitcinq info_oneybone">
                             <span>85</span>
                         </div>
                     </div>
@@ -149,7 +177,7 @@
                 </div>
                 <div class ="titre_progressBar">
                     <div class="progressBar">
-                        <div class = "info_huitcinq" id="info_oneybone">
+                        <div class = "info_huitcinq info_oneybone">
                             <span>85</span>
                         </div>
                     </div>
@@ -183,11 +211,9 @@
             <div class = "bloc_croix" id="croix_paris"><img src="Images/x-marks.png"></div>
             <div class = "bloc_fleche" id="fleche_gauche_paris"><img src="Images/fleches.png"></div>
             <div class = "bloc_fleche" id="fleche_droite_paris"><img src="Images/fleches.png"></div>
-            <div class="bloc_num_photo">
-               
-            </div>
-            <div id="text_info_imageparis"></div>
+            <div class="bloc_num_photo"></div>
         </div> 
+        <div id="text_info_imageparis"></div>
         <div class="page_number_actuelle">
             Page : 3/7
         </div>
@@ -195,17 +221,17 @@
 
     <section id="twitter" class="hidden">
         <div class="titre_avantage_incov">
-            <div class="bloc_titre_twitter" id="logo_twi">
-                <h1>Twitter</h1>
-                <div id="bloc_photo_logo_twitter" class="bloc_photo_logo_projet">
+            <div class="bloc_titre_twitter">
+                <h1 id="titre_logo_twitter">Twitter</h1>
+                <div class="bloc_photo_logo_projet" id="bloc_photo_logo_twitter">
                     <button id="bouton2"><img src="Images/twitter.png"></button>  
                 </div>
-                <p id="texte_clique_logo_twitter">Cliquez pour avoir plus</p>
+                <p id="texte_clique_logo_twitter">Cliquez pour en savoir plus</p>
             </div>
             <div class="avantages" id="info_twi">
                 <div class ="titre_progressBar">
                     <div class="progressBar">
-                        <div class = "info_cent" id="info_oneybone">
+                        <div class = "info_cent info_oneybone">
                             <span>100</span>
                         </div>
                     </div>
@@ -213,7 +239,7 @@
                 </div>
                 <div class ="titre_progressBar">  
                     <div class="progressBar">
-                        <div class = "info_neufzero" id="info_oneybone">
+                        <div class = "info_neufzero info_oneybone">
                             <span>90</span>
                         </div>
                     </div>
@@ -221,7 +247,7 @@
                 </div>
                 <div class ="titre_progressBar">
                     <div class="progressBar">
-                        <div class = "info_huitzero" id="info_oneybone">
+                        <div class = "info_huitzero info_oneybone">
                             <span>80</span>
                         </div>
                     </div>
@@ -229,7 +255,7 @@
                 </div>
                 <div class ="titre_progressBar">
                     <div class="progressBar">
-                        <div class = "info_septzero" id="info_oneybone">
+                        <div class = "info_septzero info_oneybone">
                             <span>70</span>
                         </div>
                     </div>
@@ -237,7 +263,7 @@
                 </div>
                 <div class ="titre_progressBar">
                     <div class="progressBar">
-                        <div class = "info_huitcinq" id="info_oneybone">
+                        <div class = "info_huitcinq info_oneybone">
                             <span>85</span>
                         </div>
                     </div>
@@ -245,7 +271,7 @@
                 </div>
                 <div class ="titre_progressBar">
                     <div class="progressBar">
-                        <div class = "info_septcinq" id="info_oneybone">
+                        <div class = "info_septcinq info_oneybone">
                             <span>75</span>
                         </div>
                     </div>
@@ -280,10 +306,9 @@
             <div class = "bloc_croix" id="croix_twi"><img src="Images/x-marks.png"></div>
             <div class = "bloc_fleche" id="fleche_gauche_twi"><img src="Images/fleches.png"></div>
             <div class = "bloc_fleche" id="fleche_droite_twi"><img src="Images/fleches.png"></div>
-            <div class="bloc_num_photo">
-            </div>
-            <div id="text_info_imagetwi"></div>
+            <div class="bloc_num_photo"></div>
         </div> 
+        <div id="text_info_imagetwi"></div>
         <div class="page_number_actuelle">
             Page : 4/7
         </div>
@@ -291,17 +316,17 @@
 
     <section id="pokemon" class="hidden">
         <div class="titre_avantage_incov">
-            <div class="bloc_titre_poke" id="logo_poke">
-                <h1>Pokemon</h1>
-                <div id="bloc_photo_logo_pokemon" class="bloc_photo_logo_projet">
+            <div class="bloc_titre_poke">
+                <h1 id="titre_logo_poke">Pokemon</h1>
+                <div class="bloc_photo_logo_projet" id="bloc_photo_logo_pokemon">
                     <button id="bouton3"><img src="Images/pokeball.png"></button>
                 </div>
-                <p id="texte_clique_logo_pokemon">Cliquez pour avoir plus</p>
+                <p id="texte_clique_logo_pokemon">Cliquez pour en savoir plus</p>
             </div>
             <div class="avantages" id="info_poke">
                 <div class ="titre_progressBar">
                     <div class="progressBar">
-                        <div class = "info_huitzero" id="info_oneybone">
+                        <div class = "info_huitzero info_oneybone">
                             <span>80</span>
                         </div>
                     </div>
@@ -309,7 +334,7 @@
                 </div>
                 <div class ="titre_progressBar">  
                     <div class="progressBar">
-                        <div class = "info_cent" id="info_oneybone">
+                        <div class = "info_cent info_oneybone">
                             <span>100</span>
                         </div>
                     </div>
@@ -317,7 +342,7 @@
                 </div>
                 <div class ="titre_progressBar">
                     <div class="progressBar">
-                        <div class = "info_septzero" id="info_oneybone">
+                        <div class = "info_septzero info_oneybone">
                             <span>70</span>
                         </div>
                     </div>
@@ -325,7 +350,7 @@
                 </div>
                 <div class ="titre_progressBar">
                     <div class="progressBar">
-                        <div class = "info_huitcinq" id="info_oneybone">
+                        <div class = "info_huitcinq info_oneybone">
                             <span>85</span>
                         </div>
                     </div>
@@ -333,7 +358,7 @@
                 </div>
                 <div class ="titre_progressBar">
                     <div class="progressBar">
-                        <div class = "info_huitcinq" id="info_oneybone">
+                        <div class = "info_huitcinq info_oneybone">
                             <span>85</span>
                         </div>
                     </div>
@@ -341,7 +366,7 @@
                 </div>
                 <div class ="titre_progressBar">
                     <div class="progressBar">
-                        <div class = "info_neufzero" id="info_oneybone">
+                        <div class = "info_neufzero info_oneybone">
                             <span>90</span>
                         </div>
                     </div>
@@ -374,8 +399,8 @@
             <div class = "bloc_fleche" id="fleche_droite_poke"><img src="Images/fleches.png"></div>
             <div class="bloc_num_photo">
             </div>
-            <div id="text_info_imagepoke"></div>
         </div> 
+        <div id="text_info_imagepoke"></div>
         <div class="page_number_actuelle">
             Page : 5/7
         </div>
@@ -383,12 +408,12 @@
 
     <section id="boulderShark" class="hidden">
         <div class="titre_avantage_incov">
-            <div class="bloc_titre_boulder" id="logo_boulder">
-                <h1>boulderShark</h1>
-                <div id="bloc_photo_logo_boulder" class="bloc_photo_logo_projet">
+            <div class="bloc_titre_boulder">
+                <h1 id="titre_logo_boulder">boulderShark</h1>
+                <div class="bloc_photo_logo_projet" id="bloc_photo_logo_boulder">
                     <button id="bouton4"><img src="Images/requin.png"></button>
                 </div>
-                <p id="texte_clique_logo_boulder">Cliquez pour avoir plus</p>
+                <p id="texte_clique_logo_boulder">Cliquez pour en savoir plus</p>
             </div>
             <div class="avantages" id="info_boulder">
                 <div class ="titre_progressBar">
@@ -401,7 +426,7 @@
                 </div>
                 <div class ="titre_progressBar">  
                     <div class="progressBar">
-                        <div class = "info_septcinq" id="info_oneybone">
+                        <div class = "info_septcinq info_oneybone">
                             <span>75</span>
                         </div>
                     </div>
@@ -409,7 +434,7 @@
                 </div>
                 <div class ="titre_progressBar">
                     <div class="progressBar">
-                        <div class = "info_septzero" id="info_oneybone">
+                        <div class = "info_septzero info_oneybone">
                             <span>70</span>
                         </div>
                     </div>
@@ -417,7 +442,7 @@
                 </div>
                 <div class ="titre_progressBar">
                     <div class="progressBar">
-                        <div class = "info_septzero" id="info_oneybone">
+                        <div class = "info_septzero info_oneybone">
                             <span>70</span>
                         </div>
                     </div>
@@ -425,7 +450,7 @@
                 </div>
                 <div class ="titre_progressBar">
                     <div class="progressBar">
-                        <div class = "info_huitzero" id="info_oneybone">
+                        <div class = "info_huitzero info_oneybone">
                             <span>80</span>
                         </div>
                     </div>
@@ -433,7 +458,7 @@
                 </div>
                 <div class ="titre_progressBar">
                     <div class="progressBar">
-                        <div class = "info_cinqzero" id="info_oneybone">
+                        <div class = "info_cinqzero info_oneybone">
                             <span>50</span>
                         </div>
                     </div>
@@ -466,8 +491,8 @@
                 <div class="bloc_num_photo">
                    
                 </div>
-                <div id="text_info_imageboulder"></div>
         </div> 
+        <div id="text_info_imageboulder"></div>
         <div class="page_number_actuelle">
             Page : 6/7
         </div>
@@ -475,9 +500,9 @@
 
     <section id="autreProjet" class="hidden">
         <div class="titre_avantage_incov">
-            <div class="bloc_titre_autreprojet" id="logo_autreprojet">
+            <div class="bloc_titre_autreprojet">
                 <h1>Autres projets</h1>
-                <div id="bloc_photo_logo_autreprojet" class="bloc_photo_logo_projet">
+                <div class="bloc_photo_logo_projet" id="bloc_photo_logo_autreprojet">
                     <button id="bouton5"><img src="Images/more.png"></button>
                 </div>
                 <p id="texte_clique_logo_autreproj">Cliquez pour avoir plus</p>
