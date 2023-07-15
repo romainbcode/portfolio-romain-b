@@ -1,22 +1,11 @@
-const info_firstpage = document.getElementById("parti_info_first_page")
-const info_touche_clavier = document.getElementById("touche_clavier")
-const skip_boite_mystere = document.getElementById("skip_boite_mystere")
-const titre_minijeu = document.getElementById("titre_minijeu")
-
-skip_boite_mystere.addEventListener('click', function() {
-    info_firstpage.style.display = "flex"
-    info_firstpage.style.animation = "opacityAnimation 3s 1";
-    canvas.style.display = "none"
-    info_touche_clavier.style.display = "none"
-    skip_boite_mystere.style.display = "none"
-    titre_minijeu.style.display = "none"
-})
+var largeurScreen = screen.width
+var hauteurScreen = screen.height
 
 const canvas = document.querySelector('canvas');
 const c = canvas.getContext('2d');
 
-canvas.width = 1400
-canvas.height = 1080
+canvas.width = largeurScreen
+canvas.height = hauteurScreen
 
 const gravity = 0.5;
 
@@ -70,19 +59,15 @@ class Player extends Sprite{
         const thirdblocposition_left_x = bloc_groupe3_mid.position.x
         const thirdblocposition_right_x = bloc_groupe3_mid.position.x + bloc_groupe3_mid.width + this.width
 
-        const fourthblocposition_left_x = bloc_groupe4_left.position.x
-        const fourthblocposition_right_x = bloc_groupe4_right.position.x + bloc_groupe4_right.width + this.width
+        const fourthblocposition_left_x = bloc_groupe4_mid.position.x
+        const fourthblocposition_right_x = bloc_groupe4_mid.position.x + bloc_groupe4_mid.width + this.width
 
-        const fifthblocposition_left_x = bloc_groupe5_mid.position.x
-        const fifthblocposition_right_x = bloc_groupe5_mid.position.x + bloc_groupe5_mid.width + this.width
-
-        
-        if(this.position.y + this.height>985 && this.position.x + this.width == firstblocposition_left_x){
+        if(this.position.y + this.height>hauteurScreen-95 && this.position.x + this.width == firstblocposition_left_x){
             this.position.x = this.position.x - 10
         }
 
         //Premier bloc
-        if(((this.position.x + this.width > firstblocposition_left_x) && (this.position.x + this.width < firstblocposition_right_x)) && ((this.position.y + this.height < 995) && (this.position.y + this.height > 980))){
+        if(((this.position.x + this.width > firstblocposition_left_x) && (this.position.x + this.width < firstblocposition_right_x)) && ((this.position.y + this.height < hauteurScreen-80) && (this.position.y + this.height > hauteurScreen-100))){
             console.log(this.position.y + this.height)
             this.velocity.y = 0
             this.velocity.x = 0
@@ -90,7 +75,7 @@ class Player extends Sprite{
         }
 
         //Deuxieme bloc
-        else if(((this.position.x + this.width > secondblocposition_left_x) && (this.position.x + this.width < secondblocposition_right_x)) && ((this.position.y + this.height < 892) && (this.position.y + this.height > 878))){
+        else if(((this.position.x + this.width > secondblocposition_left_x) && (this.position.x + this.width < secondblocposition_right_x)) && ((this.position.y + this.height < hauteurScreen-188) && (this.position.y + this.height > hauteurScreen-200))){
             console.log(this.position.y + this.height)
             this.velocity.y = 0
             this.velocity.x = 0
@@ -98,27 +83,22 @@ class Player extends Sprite{
         }
         
         //Troisieme bloc
-        else if(((this.position.x + this.width > thirdblocposition_left_x) && (this.position.x + this.width < thirdblocposition_right_x)) && ((this.position.y + this.height < 790) && (this.position.y + this.height > 780))){
+        else if(((this.position.x + this.width > thirdblocposition_left_x) && (this.position.x + this.width < thirdblocposition_right_x)) && ((this.position.y + this.height < hauteurScreen-290) && (this.position.y + this.height > hauteurScreen-300))){
             this.velocity.y = 0
             this.velocity.x = 0
             this.surleSol = true
         }
         //Quatrieme bloc
-        else if(((this.position.x + this.width > fourthblocposition_left_x) && (this.position.x + this.width < fourthblocposition_right_x)) && ((this.position.y + this.height < 892) && (this.position.y + this.height > 878))){
+        else if(((this.position.x + this.width > fourthblocposition_left_x) && (this.position.x + this.width < fourthblocposition_right_x)) && ((this.position.y + this.height < hauteurScreen-188) && (this.position.y + this.height > hauteurScreen-202))){
             this.velocity.y = 0
             this.velocity.x = 0
             this.surleSol = true
         }
-        //Cinquieme bloc
-        else if(((this.position.x + this.width > fifthblocposition_left_x) && (this.position.x + this.width < fifthblocposition_right_x)) && ((this.position.y + this.height < 790) && (this.position.y + this.height > 780))){
-            this.velocity.y = 0
-            this.velocity.x = 0
-            this.surleSol = true
-        }
+        
         //Sur le sol
         else if(this.position.y + this.height == canvas.height){
             if(this.position.x + this.width <100){
-                console.log(this.position.y + this.height)
+                
                 this.surleSol = true
             }else{
                 player.position.x = 0
@@ -126,7 +106,7 @@ class Player extends Sprite{
             }
            
         }
-        else if(this.position.y + this.height<680 && this.position.x + this.width>fifthblocposition_left_x){
+        else if(this.position.y + this.height<hauteurScreen-350 && this.position.x + this.width>fourthblocposition_left_x){
             info_firstpage.style.display = "flex"
             canvas.style.display = "none"
             info_touche_clavier.style.display = "none"
@@ -151,58 +131,40 @@ class BlocColision extends Sprite{
     }
 }
 const player = new Player({
-    position:{ x:0, y:1030 },
+    position:{ x:0, y:hauteurScreen-50 },
     imageSrc : './Images/boy.png',
 })
 
 const bloc_groupe1_left = new BlocColision({
-    position:{ x:100, y:980 },
+    position:{ x:150, y:hauteurScreen-100 },
     imageSrc : './Images/platform_left.png',
 })
-const bloc_groupe1_mid = new BlocColision({
-    position:{ x:200, y:980 },
-    imageSrc : './Images/platform_mid.png',
-})
 const bloc_groupe1_right = new BlocColision({
-    position:{ x:300, y:980 },
+    position:{ x:250, y:hauteurScreen-100 },
     imageSrc : './Images/platform_right.png',
 })
-
 const bloc_groupe2_left = new BlocColision({
-    position:{ x:500, y:880 },
+    position:{ x:450, y:hauteurScreen-200 },
     imageSrc : './Images/platform_left.png',
 })
 const bloc_groupe2_mid = new BlocColision({
-    position:{ x:600, y:880 },
+    position:{ x:550, y:hauteurScreen-200 },
     imageSrc : './Images/platform_mid.png',
 })
 const bloc_groupe2_right = new BlocColision({
-    position:{ x:700, y:880 },
+    position:{ x:650, y:hauteurScreen-200 },
     imageSrc : './Images/platform_right.png',
 })
-
 const bloc_groupe3_mid = new BlocColision({
-    position:{ x:850, y:780 },
-    imageSrc : './Images/platform_mid.png',
+    position:{ x:850, y:hauteurScreen-300 },
+    imageSrc : './Images/platform1.png',
 })
-
-const bloc_groupe4_left = new BlocColision({
-    position:{ x:1000, y:880 },
-    imageSrc : './Images/platform_left.png',
+const bloc_groupe4_mid = new BlocColision({
+    position:{ x:1100, y:hauteurScreen-200 },
+    imageSrc : './Images/platform1.png',
 })
-
-const bloc_groupe4_right = new BlocColision({
-    position:{ x:1100, y:880 },
-    imageSrc : './Images/platform_right.png',
-})
-
-const bloc_groupe5_mid = new BlocColision({
-    position:{ x:1300, y:780 },
-    imageSrc : './Images/platform_mid.png',
-})
-
 const bloc_final = new BlocColision({
-    position:{ x:1300, y:515 },
+    position:{ x:1100, y:hauteurScreen-480 },
     imageSrc : './Images/box_interrogation.png',
 })
 
@@ -223,7 +185,6 @@ function animate(){
     player.update();
 
     bloc_groupe1_left.update();
-    bloc_groupe1_mid.update();
     bloc_groupe1_right.update();
 
     bloc_groupe2_left.update();
@@ -232,10 +193,7 @@ function animate(){
 
     bloc_groupe3_mid.update();
 
-    bloc_groupe4_left.update();
-    bloc_groupe4_right.update();
-
-    bloc_groupe5_mid.update();
+    bloc_groupe4_mid.update();
 
     bloc_final.update();
 
@@ -281,7 +239,6 @@ const observer = new IntersectionObserver((entries)=>{
         }else{
 
         }
-        
         if(entry.isIntersecting){
             entry.target.classList.add('show');
         }else{
@@ -293,21 +250,87 @@ const observer = new IntersectionObserver((entries)=>{
 const hiddenElements = document.querySelectorAll('.hidden');
 hiddenElements.forEach((el)=>observer.observe(el));
 
+const info_firstpage = document.querySelector(".parti_info_first_page")
+const info_touche_clavier = document.querySelector(".touche_clavier")
+const skip_boite_mystere = document.querySelector(".skip_boite_mystere")
+const titre_minijeu = document.querySelector(".titre_minijeu")
+
+skip_boite_mystere.addEventListener('click', function() {
+    info_firstpage.style.display = "flex"
+    info_firstpage.style.animation = "opacityAnimation 3s 1";
+    canvas.style.display = "none"
+    info_touche_clavier.style.display = "none"
+    skip_boite_mystere.style.display = "none"
+    titre_minijeu.style.display = "none"
+})
+
+
+const bloc_projet1 = document.querySelector('.bloc_projet1');
+const info_in_bloc_projet_paris = document.getElementById('info_in_bloc_projet_paris');
+
+const bloc_projet2 = document.querySelector('.bloc_projet2');
+const info_in_bloc_projet_twitter = document.getElementById('info_in_bloc_projet_twitter');
+
+const bloc_projet3 = document.querySelector('.bloc_projet3');
+const info_in_bloc_projet_pokemon = document.getElementById('info_in_bloc_projet_pokemon');
+
+const bloc_projet4 = document.querySelector('.bloc_projet4');
+const info_in_bloc_projet_boulder = document.getElementById('info_in_bloc_projet_boulder');
+
+const bloc_projet5 = document.querySelector('.bloc_projet5');
+const info_in_bloc_projet_autreproj = document.getElementById('info_in_bloc_projet_autreproj');
+
+bloc_projet1.addEventListener('mouseover', (event)=>{
+    info_in_bloc_projet_paris.style.display = "flex"
+})
+bloc_projet1.addEventListener('mouseout', (event)=>{
+    info_in_bloc_projet_paris.style.display = "none"
+})
+
+bloc_projet2.addEventListener('mouseover', (event)=>{
+    info_in_bloc_projet_pokemon.style.display = "flex"
+})  
+bloc_projet2.addEventListener('mouseout', (event)=>{
+    info_in_bloc_projet_pokemon.style.display = "none"
+})
+
+bloc_projet3.addEventListener('mouseover', (event)=>{
+    info_in_bloc_projet_twitter.style.display = "flex"
+})
+bloc_projet3.addEventListener('mouseout', (event)=>{
+    info_in_bloc_projet_twitter.style.display = "none"
+})
+
+bloc_projet4.addEventListener('mouseover', (event)=>{
+    info_in_bloc_projet_boulder.style.display = "flex"
+})
+bloc_projet4.addEventListener('mouseout', (event)=>{
+    info_in_bloc_projet_boulder.style.display = "none"
+})
+
+bloc_projet5.addEventListener('mouseover', (event)=>{
+    info_in_bloc_projet_autreproj.style.display = "flex"
+})
+bloc_projet5.addEventListener('mouseout', (event)=>{
+    info_in_bloc_projet_autreproj.style.display = "none"
+})
+
 /* Animations pour la page sur le projet des ParisSportif */
 const info_paris = document.getElementById('info_paris');
 const info_paris_logo = document.getElementById('info_paris_logo');
 const info_paris_desc = document.getElementById('info_paris_desc');
-const paris_logo_anim = document.getElementById('logo_paris');
+const paris_logo_anim = document.querySelector('.bloc_titre_paris');
 const bouton1 = document.getElementById('bouton1');
 const photo_paris = document.getElementById("photo_paris");
 
 const texte_clique_logo_paris = document.getElementById("texte_clique_logo_paris");
-const bloc_photo_logo_paris = document.getElementById("bloc_photo_logo_paris");
+const bloc_photo_logo_paris = document.querySelector(".bloc_photo_logo_projet");
+const titre_logo_paris = document.getElementById("titre_logo_paris");
 
 bouton1.addEventListener('click', function() {
-    paris_logo_anim.style.bottom = "0";
-    paris_logo_anim.style.left = "0";
-    paris_logo_anim.style.transform = "translate(50%, 50%)";
+    paris_logo_anim.style.position = "absolute";
+    paris_logo_anim.style.bottom = "60px";
+    paris_logo_anim.style.left = "30px";
     paris_logo_anim.style.animation = "opacityAnimation 5s 1";
     info_paris.style.animation = "opacityAnimation 3s 1";
     info_paris_logo.style.animation = "opacityAnimation 3s 1";
@@ -319,6 +342,7 @@ bouton1.addEventListener('click', function() {
     info_paris_photo.style.display = "flex";
     bloc_photo_logo_paris.style.border = "none"
     texte_clique_logo_paris.style.display = "none"
+    titre_logo_paris.style.display = "none"
 });
 
 bloc_photo_logo_paris.addEventListener('mouseover', (event)=>{
@@ -411,10 +435,10 @@ photo_paris.addEventListener('click', function(){
     bouton_fleche_droite_paris.style.display = "inline-block";
     bloc_photo_paris.style.position = "absolute";
     bloc_photo_paris.style.left = "50%";
-    bloc_photo_paris.style.top = "50%";
+    bloc_photo_paris.style.bottom = "20%";
     bloc_photo_paris.style.width = "1000px";
     bloc_photo_paris.style.height = "calc(1000px*0.56)";   
-    bloc_photo_paris.style.transform = "translate(-50%, -50%)";
+    bloc_photo_paris.style.transform = "translate(-50%, 0%)";
     croix_paris.style.display = "flex";
     text_info_imageparis.style.display = "flex";
     text_info_imageparis.innerHTML = text1_paris;
@@ -428,10 +452,9 @@ photo_paris.addEventListener('click', function(){
 croix_paris.addEventListener('click', function(){
     bouton_fleche_gauche_paris.style.display = "none";
     bouton_fleche_droite_paris.style.display = "none";
-    bloc_photo_paris.style.position = "absolute";
     bloc_photo_paris.style.bottom = "0px";
-    bloc_photo_paris.style.transform = "translate(-50%, -5%)"; 
     bloc_photo_paris.style.left = "50%";
+    bloc_photo_paris.style.transform = "translate(-50%, -5%)"; 
     bloc_photo_paris.style.width = "600px";
     bloc_photo_paris.style.height = "calc(600px*0.56)";  
     croix_paris.style.display = "none";
@@ -447,18 +470,18 @@ croix_paris.addEventListener('click', function(){
 const info_twi = document.getElementById('info_twi');
 const info_twi_logo = document.getElementById('info_twi_logo');
 const info_twi_desc = document.getElementById('info_twi_desc');
-const twi_logo_anim = document.getElementById('logo_twi');
+const twi_logo_anim = document.querySelector('.bloc_titre_twitter');
 const bouton2 = document.getElementById('bouton2');
 const photo_twi = document.getElementById("photo_twi");
 
 const texte_clique_logo_twitter = document.getElementById("texte_clique_logo_twitter");
 const bloc_photo_logo_twitter = document.getElementById("bloc_photo_logo_twitter");
-
+const titre_logo_twitter = document.getElementById("titre_logo_twitter");
 
 bouton2.addEventListener('click', function() {
-    twi_logo_anim.style.bottom = "0";
-    twi_logo_anim.style.left = "0";
-    twi_logo_anim.style.transform = "translate(50%, 50%)";
+    twi_logo_anim.style.position = "absolute";
+    twi_logo_anim.style.bottom = "60px";
+    twi_logo_anim.style.left = "30px";
     twi_logo_anim.style.animation = "opacityAnimation 5s 1";
     info_twi.style.animation = "opacityAnimation 3s 1";
     info_twi_logo.style.animation = "opacityAnimation 3s 1";
@@ -470,6 +493,7 @@ bouton2.addEventListener('click', function() {
     info_twi_photo.style.display = "flex";
     bloc_photo_logo_twitter.style.border = "none";
     texte_clique_logo_twitter.style.display = "none"
+    titre_logo_twitter.style.display = "none"
 });
 
 bloc_photo_logo_twitter.addEventListener('mouseover', (event)=>{
@@ -555,10 +579,10 @@ photo_twi.addEventListener('click', function(){
     bouton_fleche_droite_twi.style.display = "inline-block";
     bloc_photo_twi.style.position = "absolute";
     bloc_photo_twi.style.left = "50%";
-    bloc_photo_twi.style.top = "50%";
+    bloc_photo_twi.style.bottom = "20%";
     bloc_photo_twi.style.width = "850px";
     bloc_photo_twi.style.height = "calc(1000px*0.56)";   
-    bloc_photo_twi.style.transform = "translate(-50%, -50%)";
+    bloc_photo_twi.style.transform = "translate(-50%, 0%)";
     croix_twi.style.display = "flex";
     text_info_imagetwi.style.display = "flex";
     text_info_imagetwi.innerHTML = text1_twi;
@@ -590,18 +614,18 @@ croix_twi.addEventListener('click', function(){
 const info_poke = document.getElementById('info_poke');
 const info_poke_logo = document.getElementById('info_poke_logo');
 const info_poke_desc = document.getElementById('info_poke_desc');
-const poke_logo_anim = document.getElementById('logo_poke');
+const poke_logo_anim = document.querySelector('.bloc_titre_poke');
 const bouton3 = document.getElementById('bouton3');
 const photo_poke = document.getElementById("photo_poke");
 
 const texte_clique_logo_pokemon = document.getElementById("texte_clique_logo_pokemon");
 const bloc_photo_logo_pokemon = document.getElementById("bloc_photo_logo_pokemon");
-
+const titre_logo_poke = document.getElementById("titre_logo_poke");
 
 bouton3.addEventListener('click', function() {
-    poke_logo_anim.style.bottom = "0";
-    poke_logo_anim.style.left = "0";
-    poke_logo_anim.style.transform = "translate(50%, 50%)";
+    poke_logo_anim.style.position = "absolute";
+    poke_logo_anim.style.bottom = "60px";
+    poke_logo_anim.style.left = "30px";
     poke_logo_anim.style.animation = "opacityAnimation 5s 1";
     info_poke.style.animation = "opacityAnimation 3s 1";
     info_poke_logo.style.animation = "opacityAnimation 3s 1";
@@ -613,6 +637,7 @@ bouton3.addEventListener('click', function() {
     info_poke_photo.style.display = "flex";
     bloc_photo_logo_pokemon.style.border = "none";
     texte_clique_logo_pokemon.style.display = "none"
+    titre_logo_poke.style.display = "none"
 });
 
 bloc_photo_logo_pokemon.addEventListener('mouseover', (event)=>{
@@ -691,10 +716,10 @@ photo_poke.addEventListener('click', function(){
     bouton_fleche_droite_poke.style.display = "inline-block";
     bloc_photo_poke.style.position = "absolute";
     bloc_photo_poke.style.left = "50%";
-    bloc_photo_poke.style.top = "50%";
+    bloc_photo_poke.style.bottom = "15%";
     bloc_photo_poke.style.width = "1000px";
     bloc_photo_poke.style.height = "calc(1000px*0.60)";   
-    bloc_photo_poke.style.transform = "translate(-50%, -50%)";
+    bloc_photo_poke.style.transform = "translate(-50%, 0%)";
     croix_poke.style.display = "flex";
     text_info_imagepoke.style.display = "flex";
     text_info_imagepoke.innerHTML = text1;
@@ -729,18 +754,18 @@ const info_boulder = document.getElementById('info_boulder');
 const info_boulder_logo = document.getElementById('info_boulder_logo');
 const info_boulder_desc = document.getElementById('info_boulder_desc');
 const info_boulder_photo = document.getElementById('info_boulder_photo');
-const boulder_logo_anim = document.getElementById('logo_boulder');
+const boulder_logo_anim = document.querySelector('.bloc_titre_boulder');
 const bouton4 = document.getElementById('bouton4');
 const photo_boulder = document.getElementById("photo_boulder");
 
 const texte_clique_logo_boulder = document.getElementById("texte_clique_logo_boulder");
 const bloc_photo_logo_boulder = document.getElementById("bloc_photo_logo_boulder");
-
+const titre_logo_boulder = document.getElementById("titre_logo_boulder");
 
 bouton4.addEventListener('click', function() {
-    boulder_logo_anim.style.bottom = "0";
-    boulder_logo_anim.style.left = "0";
-    boulder_logo_anim.style.transform = "translate(50%, 50%)";
+    boulder_logo_anim.style.position = "absolute";
+    boulder_logo_anim.style.bottom = "60px";
+    boulder_logo_anim.style.left = "30px";
     boulder_logo_anim.style.animation = "opacityAnimation 5s 1";
     info_boulder.style.animation = "opacityAnimation 3s 1";
     info_boulder_logo.style.animation = "opacityAnimation 3s 1";
@@ -752,6 +777,7 @@ bouton4.addEventListener('click', function() {
     info_boulder_photo.style.display = "flex";
     bloc_photo_logo_boulder.style.border = "none";
     texte_clique_logo_boulder.style.display = "none"
+    titre_logo_boulder.style.display = "none"
 });
 
 bloc_photo_logo_boulder.addEventListener('mouseover', (event)=>{
@@ -833,10 +859,10 @@ photo_boulder.addEventListener('click', function(){
     bouton_fleche_droite_boulder.style.display = "inline-block";
     bloc_photo_boulder.style.position = "absolute";
     bloc_photo_boulder.style.left = "50%";
-    bloc_photo_boulder.style.top = "50%";
+    bloc_photo_boulder.style.bottom = "20%";
     bloc_photo_boulder.style.width = "1000px";
     bloc_photo_boulder.style.height = "calc(1000px*0.56)";   
-    bloc_photo_boulder.style.transform = "translate(-50%, -50%)";
+    bloc_photo_boulder.style.transform = "translate(-50%, 0%)";
     croix_boulder.style.display = "flex";
     text_info_imageboulder.style.display = "flex";
     text_info_imageboulder.innerHTML = text1;
@@ -884,7 +910,7 @@ const autreproj1 = document.getElementById("description_autreproj1");
 const autreproj2 = document.getElementById("description_autreproj2");
 const autreproj3 = document.getElementById("description_autreproj3");
 
-const autreproj_logo_anim = document.getElementById('logo_autreprojet');
+const autreproj_logo_anim = document.querySelector('.bloc_titre_autreprojet');
 
 const texte_clique_logo_autreproj = document.getElementById("texte_clique_logo_autreproj");
 const bloc_photo_logo_autreprojet = document.getElementById("bloc_photo_logo_autreprojet");
@@ -893,7 +919,7 @@ const bloc_photo_logo_autreprojet = document.getElementById("bloc_photo_logo_aut
 bouton5.addEventListener('click', function() {
     autreproj_logo_anim.style.top = "0%";
     autreproj_logo_anim.style.left = "50%";
-    autreproj_logo_anim.style.transform = "translate(-50%, 20%)";
+    autreproj_logo_anim.style.transform = "translate(0%, -50%)";
     autreproj_logo_anim.style.animation = "opacityAnimation 5s 1";
     info_autreproj1.style.display = "flex";
     info_autreproj2.style.display = "flex";
