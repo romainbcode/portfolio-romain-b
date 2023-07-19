@@ -94,11 +94,9 @@ class Player extends Sprite{
             this.velocity.x = 0
             this.surleSol = true
         }
-        
         //Sur le sol
         else if(this.position.y + this.height == canvas.height){
-            if(this.position.x + this.width <100){
-                
+            if(this.position.x + this.width <150){
                 this.surleSol = true
             }else{
                 player.position.x = 0
@@ -211,10 +209,10 @@ const observer = new IntersectionObserver((entries)=>{
             animate();
             window.addEventListener('keydown', (event)=>{
                 switch(event.key){
-                    case 'd':
+                    case 'ArrowRight':
                         keys.d.pressed = true; 
                     break;
-                    case 'q':
+                    case 'ArrowLeft':
                         keys.q.pressed = true; 
                     break;
                     case ' ':
@@ -227,10 +225,10 @@ const observer = new IntersectionObserver((entries)=>{
             })
             window.addEventListener('keyup', (event)=>{
                 switch(event.key){
-                    case 'd':
+                    case 'ArrowRight':
                         keys.d.pressed = false; 
                     break;
-                    case 'q':
+                    case 'ArrowLeft':
                         keys.q.pressed = false; 
                     break;
                 }
