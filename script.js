@@ -1,242 +1,6 @@
-var largeurScreen = screen.width
-var hauteurScreen = screen.height
-
-const canvas = document.querySelector('canvas');
-const c = canvas.getContext('2d');
-
-canvas.width = largeurScreen
-canvas.height = hauteurScreen
-
-const gravity = 0.5;
-
-class Sprite {
-    constructor({ position,imageSrc }) {
-        this.position = position
-        this.image = new Image()
-        this.image.onload = () =>{
-            this.width = this.image.width
-            this.height = this.image.height
-        }
-        this.image.src = imageSrc
-    }
-    draw() {
-        if (!this.image) return
-        c.drawImage(this.image, this.position.x, this.position.y)
-    }
-    update() {
-        this.draw()
-    }    
-}
-
-class Player extends Sprite{
-    constructor({position, imageSrc}){
-        super({ imageSrc })
-        this.position = position 
-        this.velocity = {
-            x:0,
-            y:0,
-        }
-        this.height = 50
-        this.width = 50
-        this.surleSol = false
-    }
-    
-    update(){
-        this.draw()
-        this.position.x += this.velocity.x
-        this.position.y += this.velocity.y
-        if(this.position.y + this.height + this.velocity.y < canvas.height){
-            this.velocity.y += gravity
-        }else{
-            this.velocity.y = 0
-        }
-        const firstblocposition_left_x = bloc_groupe1_left.position.x
-        const firstblocposition_right_x = bloc_groupe1_right.position.x + bloc_groupe1_right.width + this.width
-
-        const secondblocposition_left_x = bloc_groupe2_left.position.x
-        const secondblocposition_right_x = bloc_groupe2_right.position.x + bloc_groupe2_right.width + this.width
-
-        const thirdblocposition_left_x = bloc_groupe3_mid.position.x
-        const thirdblocposition_right_x = bloc_groupe3_mid.position.x + bloc_groupe3_mid.width + this.width
-
-        const fourthblocposition_left_x = bloc_groupe4_mid.position.x
-        const fourthblocposition_right_x = bloc_groupe4_mid.position.x + bloc_groupe4_mid.width + this.width
-
-        if(this.position.y + this.height>hauteurScreen-95 && this.position.x + this.width == firstblocposition_left_x){
-            this.position.x = this.position.x - 10
-        }
-
-        //Premier bloc
-        if(((this.position.x + this.width > firstblocposition_left_x) && (this.position.x + this.width < firstblocposition_right_x)) && ((this.position.y + this.height < hauteurScreen-80) && (this.position.y + this.height > hauteurScreen-100))){
-            console.log(this.position.y + this.height)
-            this.velocity.y = 0
-            this.velocity.x = 0
-            this.surleSol = true    
-        }
-
-        //Deuxieme bloc
-        else if(((this.position.x + this.width > secondblocposition_left_x) && (this.position.x + this.width < secondblocposition_right_x)) && ((this.position.y + this.height < hauteurScreen-188) && (this.position.y + this.height > hauteurScreen-200))){
-            console.log(this.position.y + this.height)
-            this.velocity.y = 0
-            this.velocity.x = 0
-            this.surleSol = true
-        }
-        
-        //Troisieme bloc
-        else if(((this.position.x + this.width > thirdblocposition_left_x) && (this.position.x + this.width < thirdblocposition_right_x)) && ((this.position.y + this.height < hauteurScreen-290) && (this.position.y + this.height > hauteurScreen-300))){
-            this.velocity.y = 0
-            this.velocity.x = 0
-            this.surleSol = true
-        }
-        //Quatrieme bloc
-        else if(((this.position.x + this.width > fourthblocposition_left_x) && (this.position.x + this.width < fourthblocposition_right_x)) && ((this.position.y + this.height < hauteurScreen-188) && (this.position.y + this.height > hauteurScreen-202))){
-            this.velocity.y = 0
-            this.velocity.x = 0
-            this.surleSol = true
-        }
-        //Sur le sol
-        else if(this.position.y + this.height == canvas.height){
-            if(this.position.x + this.width <150){
-                this.surleSol = true
-            }else{
-                player.position.x = 0
-                player.position.y = 500
-            }
-           
-        }
-        else if(this.position.y + this.height<hauteurScreen-350 && this.position.x + this.width>fourthblocposition_left_x){
-            info_firstpage.style.display = "flex"
-            canvas.style.display = "none"
-            info_touche_clavier.style.display = "none"
-            skip_boite_mystere.style.display = "none"
-            titre_minijeu.style.display = "none"
-        }
-        else{
-            this.surleSol = false
-        }
-    }
-}
-
-class BlocColision extends Sprite{
-    constructor({position, imageSrc}){
-        super({ imageSrc })
-        this.position = position 
-        this.height = 100
-        this.width = 100
-    }
-    update(){
-        this.draw()
-    }
-}
-const player = new Player({
-    position:{ x:0, y:hauteurScreen-50 },
-    imageSrc : './Images/boy.png',
-})
-
-const bloc_groupe1_left = new BlocColision({
-    position:{ x:150, y:hauteurScreen-100 },
-    imageSrc : './Images/platform_left.png',
-})
-const bloc_groupe1_right = new BlocColision({
-    position:{ x:250, y:hauteurScreen-100 },
-    imageSrc : './Images/platform_right.png',
-})
-const bloc_groupe2_left = new BlocColision({
-    position:{ x:450, y:hauteurScreen-200 },
-    imageSrc : './Images/platform_left.png',
-})
-const bloc_groupe2_mid = new BlocColision({
-    position:{ x:550, y:hauteurScreen-200 },
-    imageSrc : './Images/platform_mid.png',
-})
-const bloc_groupe2_right = new BlocColision({
-    position:{ x:650, y:hauteurScreen-200 },
-    imageSrc : './Images/platform_right.png',
-})
-const bloc_groupe3_mid = new BlocColision({
-    position:{ x:850, y:hauteurScreen-300 },
-    imageSrc : './Images/platform1.png',
-})
-const bloc_groupe4_mid = new BlocColision({
-    position:{ x:1100, y:hauteurScreen-200 },
-    imageSrc : './Images/platform1.png',
-})
-const bloc_final = new BlocColision({
-    position:{ x:1100, y:hauteurScreen-480 },
-    imageSrc : './Images/box_interrogation.png',
-})
-
-
-const keys={
-    d:{
-        pressed: false,
-    },
-    q:{
-        pressed: false,
-    }
-}
-
-function animate(){
-    window.requestAnimationFrame(animate);
-    c.fillStyle = '#001B48'
-    c.fillRect(0, 0, canvas.width, canvas.height);
-    player.update();
-
-    bloc_groupe1_left.update();
-    bloc_groupe1_right.update();
-
-    bloc_groupe2_left.update();
-    bloc_groupe2_mid.update();
-    bloc_groupe2_right.update();
-
-    bloc_groupe3_mid.update();
-
-    bloc_groupe4_mid.update();
-
-    bloc_final.update();
-
-    player.velocity.x = 0
-    if(keys.d.pressed) player.velocity.x = 5
-    else if(keys.q.pressed) player.velocity.x = -5
-    
-}
-
 /* Animation lorsque l'on se trouve dans une certaine section */
 const observer = new IntersectionObserver((entries)=>{
-    entries.forEach((entry)=>{
-        //Si on est sur la premiere page
-        if(entry.target.id == "one" && entry.isIntersecting){
-            animate();
-            window.addEventListener('keydown', (event)=>{
-                switch(event.key){
-                    case 'ArrowRight':
-                        keys.d.pressed = true; 
-                    break;
-                    case 'ArrowLeft':
-                        keys.q.pressed = true; 
-                    break;
-                    case ' ':
-                        if(player.surleSol == true){
-                            player.velocity.y = -11 
-                            player.surleSol = false
-                        }
-                    break;
-                }
-            })
-            window.addEventListener('keyup', (event)=>{
-                switch(event.key){
-                    case 'ArrowRight':
-                        keys.d.pressed = false; 
-                    break;
-                    case 'ArrowLeft':
-                        keys.q.pressed = false; 
-                    break;
-                }
-            })
-            
-        }else{
-
-        }
+    entries.forEach((entry)=>{        
         if(entry.isIntersecting){
             entry.target.classList.add('show');
         }else{
@@ -247,21 +11,6 @@ const observer = new IntersectionObserver((entries)=>{
 
 const hiddenElements = document.querySelectorAll('.hidden');
 hiddenElements.forEach((el)=>observer.observe(el));
-
-const info_firstpage = document.querySelector(".parti_info_first_page")
-const info_touche_clavier = document.querySelector(".touche_clavier")
-const skip_boite_mystere = document.querySelector(".skip_boite_mystere")
-const titre_minijeu = document.querySelector(".titre_minijeu")
-
-skip_boite_mystere.addEventListener('click', function() {
-    info_firstpage.style.display = "flex"
-    info_firstpage.style.animation = "opacityAnimation 3s 1";
-    canvas.style.display = "none"
-    info_touche_clavier.style.display = "none"
-    skip_boite_mystere.style.display = "none"
-    titre_minijeu.style.display = "none"
-})
-
 
 const bloc_projet1 = document.querySelector('.bloc_projet1');
 const info_in_bloc_projet_paris = document.getElementById('info_in_bloc_projet_paris');
@@ -277,6 +26,9 @@ const info_in_bloc_projet_boulder = document.getElementById('info_in_bloc_projet
 
 const bloc_projet5 = document.querySelector('.bloc_projet5');
 const info_in_bloc_projet_autreproj = document.getElementById('info_in_bloc_projet_autreproj');
+
+const bloc_projet6 = document.querySelector('.bloc_projet6');
+const info_in_bloc_projet_quiz = document.getElementById('info_in_bloc_projet_quiz');
 
 bloc_projet1.addEventListener('mouseover', (event)=>{
     info_in_bloc_projet_paris.style.display = "flex"
@@ -313,6 +65,13 @@ bloc_projet5.addEventListener('mouseout', (event)=>{
     info_in_bloc_projet_autreproj.style.display = "none"
 })
 
+bloc_projet6.addEventListener('mouseover', (event)=>{
+    info_in_bloc_projet_quiz.style.display = "flex"
+})
+bloc_projet6.addEventListener('mouseout', (event)=>{
+    info_in_bloc_projet_quiz.style.display = "none"
+})
+
 /* Animations pour la page sur le projet des ParisSportif */
 const info_paris = document.getElementById('info_paris');
 const info_paris_logo = document.getElementById('info_paris_logo');
@@ -322,7 +81,7 @@ const bouton1 = document.getElementById('bouton1');
 const photo_paris = document.getElementById("photo_paris");
 
 const texte_clique_logo_paris = document.getElementById("texte_clique_logo_paris");
-const bloc_photo_logo_paris = document.querySelector(".bloc_photo_logo_projet");
+const bloc_photo_logo_paris = document.getElementById("bloc_photo_logo_paris");
 const titre_logo_paris = document.getElementById("titre_logo_paris");
 
 bouton1.addEventListener('click', function() {
@@ -395,13 +154,9 @@ bouton_fleche_gauche_paris.addEventListener('click', function(){
     }
 })
 bouton_fleche_droite_paris.addEventListener('click', function(){
-    if(position_photo_paris+1<=nbre_photo_paris){
-        
-        console.log("photo apres" + position_photo_paris);
+    if(position_photo_paris+1<=nbre_photo_paris){   
         position_photo_paris = position_photo_paris + 1;
         url_parisphoto = "Images/paris" + position_photo_paris + ".png";
-        
-
         photo_paris.style.backgroundImage = `url(${url_parisphoto})`;
         if(position_photo_paris == 2){
             text_info_imageparis.innerHTML = text2_paris;
@@ -425,7 +180,6 @@ bouton_fleche_droite_paris.addEventListener('click', function(){
 
 
 const bloc_photo_paris = document.getElementById("info_paris_photo");
-
 var croix_paris = document.getElementById("croix_paris");
 
 photo_paris.addEventListener('click', function(){
@@ -440,7 +194,6 @@ photo_paris.addEventListener('click', function(){
     croix_paris.style.display = "flex";
     text_info_imageparis.style.display = "flex";
     text_info_imageparis.innerHTML = text1_paris;
-    //info_paris.style.opacity = 0.5;
     info_paris_logo.style.filter = "blur(1.5rem)";
     info_paris_desc.style.filter = "blur(1.5rem)";
     paris_logo_anim.style.filter = "blur(1.5rem)";
@@ -519,9 +272,7 @@ const bouton_fleche_droite_twi = document.getElementById("fleche_droite_twi");
 
 bouton_fleche_gauche_twi.addEventListener('click', function(){
     if(position_photo_twi-1>0){
-        console.log("photo avant" + position_photo_twi);
         position_photo_twi = position_photo_twi - 1;
-        console.log(position_photo_twi);
         url_twiphoto = "Images/twitter" + position_photo_twi + ".png";
         photo_twi.style.backgroundImage = `url(${url_twiphoto})`;
         if(position_photo_twi == 1){
@@ -536,7 +287,6 @@ bouton_fleche_gauche_twi.addEventListener('click', function(){
         if(position_photo_twi == 4){
             text_info_imagetwi.innerHTML = text4_twi;
         }
-
     }else{
         console.log("pas de photo avant");
         
@@ -544,8 +294,6 @@ bouton_fleche_gauche_twi.addEventListener('click', function(){
 })
 bouton_fleche_droite_twi.addEventListener('click', function(){
     if(position_photo_twi+1<=nbre_photo_twi){
-        
-        console.log("photo apres" + position_photo_twi);
         position_photo_twi = position_photo_twi + 1;
         url_twiphoto = "Images/twitter" + position_photo_twi + ".png";
         photo_twi.style.backgroundImage = `url(${url_twiphoto})`;
@@ -562,14 +310,12 @@ bouton_fleche_droite_twi.addEventListener('click', function(){
             text_info_imagetwi.innerHTML = text5_twi;
         }
     }else{
-        console.log("pas de photo apres");
-        
+        console.log("pas de photo apres");    
     }
 })
 
 
 const bloc_photo_twi = document.getElementById("info_twi_photo");
-
 const croix_twi = document.getElementById("croix_twi");
 
 photo_twi.addEventListener('click', function(){
@@ -674,20 +420,14 @@ bouton_fleche_gauche_poke.addEventListener('click', function(){
         if(position_photo_paris == 3){
             text_info_imagepoke.innerHTML = text3_poke;
         }
-
     }else{
         console.log("pas de photo avant");
-       
     }
 })
 bouton_fleche_droite_poke.addEventListener('click', function(){
     if(position_photo_poke+1<=nbre_photo_poke){
-        
-        
         position_photo_poke = position_photo_poke + 1;
         url_pokephoto = "Images/poke" + position_photo_poke + ".png";
-        
-
         photo_poke.style.backgroundImage = `url(${url_pokephoto})`;
         if(position_photo_poke == 2){
             text_info_imagepoke.innerHTML = text2_poke;
@@ -699,8 +439,7 @@ bouton_fleche_droite_poke.addEventListener('click', function(){
             text_info_imagepoke.innerHTML = text4_poke;
         }
     }else{
-        console.log("pas de photo apres");
-        
+        console.log("pas de photo apres");  
     }
 })
 
@@ -744,8 +483,6 @@ croix_poke.addEventListener('click', function(){
     poke_logo_anim.style.filter = "blur(0)";
     info_poke.style.filter = "blur(0)";
 })
-
-
 
 /* Animations pour la page sur le projet Pokemon */
 const info_boulder = document.getElementById('info_boulder');
@@ -802,9 +539,7 @@ const bouton_fleche_droite_boulder = document.getElementById("fleche_droite_boul
 
 bouton_fleche_gauche_boulder.addEventListener('click', function(){
     if(position_photo_boulder-1>0){
-        console.log("photo avant" + position_photo_boulder);
         position_photo_boulder = position_photo_boulder - 1;
-        console.log(position_photo_boulder);
         url_boulderphoto = "Images/bouldershark" + position_photo_boulder + ".png";
         photo_boulder.style.backgroundImage = `url(${url_boulderphoto})`;
         if(position_photo_boulder == 1){
@@ -816,21 +551,14 @@ bouton_fleche_gauche_boulder.addEventListener('click', function(){
         if(position_photo_boulder == 3){
             text_info_imageboulder.innerHTML = text3;
         }
-
     }else{
         console.log("pas de photo avant");
-        console.log(position_photo_boulder);
     }
 })
 bouton_fleche_droite_boulder.addEventListener('click', function(){
     if(position_photo_boulder+1<=nbre_photo_boulder){
-        
-        console.log("photo apres" + position_photo_boulder);
         position_photo_boulder = position_photo_boulder + 1;
         url_boulderphoto = "Images/bouldershark" + position_photo_boulder + ".png";
-        
-        console.log(url_boulderphoto);
-
         photo_boulder.style.backgroundImage = `url(${url_boulderphoto})`;
         if(position_photo_boulder == 2){
             text_info_imageboulder.innerHTML = text2;
@@ -843,7 +571,6 @@ bouton_fleche_droite_boulder.addEventListener('click', function(){
         }
     }else{
         console.log("pas de photo apres");
-        console.log(position_photo_boulder);
     }
 })
 
@@ -970,3 +697,161 @@ autreproj3.addEventListener('click', function(){
     }
 })
 
+/* Animations pour la page sur le projet Quiz */
+const info_quiz = document.getElementById('info_quiz');
+const info_quiz_logo = document.getElementById('info_quiz_logo');
+const info_quiz_desc = document.getElementById('info_quiz_desc');
+const info_quiz_photo = document.getElementById('info_quiz_photo');
+const quiz_logo_anim = document.querySelector('.bloc_titre_quiz');
+const bouton6 = document.getElementById('bouton_quiz');
+const photo_quiz = document.getElementById("photo_quiz");
+
+const texte_clique_logo_quiz = document.getElementById("texte_clique_logo_quiz");
+const bloc_photo_logo_quiz = document.getElementById("bloc_photo_logo_quiz");
+const titre_logo_quiz = document.getElementById("titre_logo_quiz");
+
+bouton6.addEventListener('click', function() {
+    quiz_logo_anim.style.position = "absolute";
+    quiz_logo_anim.style.bottom = "60px";
+    quiz_logo_anim.style.left = "30px";
+    quiz_logo_anim.style.animation = "opacityAnimation 5s 1";
+    info_quiz.style.animation = "opacityAnimation 3s 1";
+    info_quiz_logo.style.animation = "opacityAnimation 3s 1";
+    info_quiz_desc.style.animation = "opacityAnimation 3s 1";
+    photo_quiz.style.animation = "opacityAnimation 3s 1";
+    info_quiz.style.display = "flex";
+    info_quiz_logo.style.display = "flex";
+    info_quiz_desc.style.display = "flex";
+    info_quiz_photo.style.display = "flex";
+    bloc_photo_logo_quiz.style.border = "none";
+    texte_clique_logo_quiz.style.display = "none"
+    titre_logo_quiz.style.display = "none"
+});
+
+bloc_photo_logo_quiz.addEventListener('mouseover', (event)=>{
+    texte_clique_logo_quiz.style.color = "#D6E8EE"
+})
+
+bloc_photo_logo_quiz.addEventListener('mouseout', (event)=>{
+    texte_clique_logo_quiz.style.color = "transparent"
+})
+
+var position_photo_quiz = 1;
+var nbre_photo_quiz = 8;
+
+
+var url_quizphoto = "";
+var text1 = "Le menu permet à l'utilisateur de choisir le quiz qui lui convient. En passant la souris sur les quizs, une animation réduit l'image et laisse apparaitre la description de celui-ci. Il est également notable que les menus de la NavBar dépendent du type d'utilisateur(user ou admin).";
+var text2 = "Voici l'historique de l'utilisateur 'celest'. La moyenne de tous ces quizs est affiché dans la NavBar. Il est également possible, grâce à une animation similaire à celle sur la page d'accueil, de visualer le score de chaque quiz en survolant avec la souris les blocs de chaque quiz.";
+var text3 = "Voici la première partie réservé aux administrateurs. Il s'agit du dashboard qui permet une visualisation de chaque quiz créée. Il est possible de supprimer et de modifier un quiz grâce aux logos présents à droites de chaque ligne du dashboard.";
+var text4 = "Voici la seconde partie permettant de créer un quiz. Il est possible de rajouter autant de question et réponses que l'on souhaite. Cependant, une seule réponse doit être juste.";
+var text5 = "Voici un exemple du quiz sur Cristiano Ronaldo. On y retrouve le titre du quiz, sa description ainsi que toutes ses questions et ses réponses associées.";
+var text6 = "Lorsque l'on clique sur une proposition, celle affiche en rouge les mauvaises réponses et en vert la bonne réponse. Le bouton 'Send' en bas de page permet de communiquer à la base de donnée le score total obtenu par l'utilisateur."
+var text7 = "L'interface de connexion. Lorsque la connexion est validé, un token possédant l'id de l'utilisateur est généré dans les cookies. Ceci permet de pouvoir rajouter de la sécurité, au niveau des routes, comme par exemple vérfier que l'utilisateur est bien connecté pour qu'il puisse accéder à son historique. Dans la partie frontend, au moment de l'appel API du signin, les informations de l'utilisateur sont stockés dans le localStorage."
+var text8 = "L'interface d'inscription."
+const text_info_imagequiz = document.getElementById("text_info_imagequiz");
+
+const bouton_fleche_gauche_quiz = document.getElementById("fleche_gauche_quiz");
+const bouton_fleche_droite_quiz = document.getElementById("fleche_droite_quiz");
+
+bouton_fleche_gauche_quiz.addEventListener('click', function(){
+    if(position_photo_quiz-1>0){
+        position_photo_quiz = position_photo_quiz - 1;
+        url_quizphoto = "Images/quiz" + position_photo_quiz + ".png";
+        photo_quiz.style.backgroundImage = `url(${url_quizphoto})`;
+        if(position_photo_quiz == 1){
+            text_info_imagequiz.innerHTML = text1;
+        }
+        if(position_photo_quiz == 2){
+            text_info_imagequiz.innerHTML = text2;
+        }
+        if(position_photo_quiz == 3){
+            text_info_imagequiz.innerHTML = text3;
+        }
+        if(position_photo_quiz == 4){
+            text_info_imagequiz.innerHTML = text4;
+        }
+        if(position_photo_quiz == 5){
+            text_info_imagequiz.innerHTML = text5;
+        }
+        if(position_photo_quiz == 6){
+            text_info_imagequiz.innerHTML = text6;
+        }
+        if(position_photo_quiz == 7){
+            text_info_imagequiz.innerHTML = text7;
+        }
+    }else{
+        console.log("pas de photo avant");
+    }
+})
+bouton_fleche_droite_quiz.addEventListener('click', function(){
+    if(position_photo_quiz+1<=nbre_photo_quiz){
+        position_photo_quiz = position_photo_quiz + 1;
+        url_quizphoto = "Images/quiz" + position_photo_quiz + ".png";
+        photo_quiz.style.backgroundImage = `url(${url_quizphoto})`;
+        if(position_photo_quiz == 2){
+            text_info_imagequiz.innerHTML = text2;
+        }
+        if(position_photo_quiz == 3){
+            text_info_imagequiz.innerHTML = text3;
+        }
+        if(position_photo_quiz == 4){
+            text_info_imagequiz.innerHTML = text4;
+        }
+        if(position_photo_quiz == 5){
+            text_info_imagequiz.innerHTML = text5;
+        }
+        if(position_photo_quiz == 6){
+            text_info_imagequiz.innerHTML = text6;
+        }
+        if(position_photo_quiz == 7){
+            text_info_imagequiz.innerHTML = text7;
+        }
+        if(position_photo_quiz == 8){
+            text_info_imagequiz.innerHTML = text8;
+        }
+    }else{
+        console.log("pas de photo apres");
+    }
+})
+
+
+const bloc_photo_quiz = document.getElementById("info_quiz_photo");
+
+const croix_quiz = document.getElementById("croix_quiz");
+
+photo_quiz.addEventListener('click', function(){
+    bouton_fleche_gauche_quiz.style.display = "inline-block";
+    bouton_fleche_droite_quiz.style.display = "inline-block";
+    bloc_photo_quiz.style.position = "absolute";
+    bloc_photo_quiz.style.left = "50%";
+    bloc_photo_quiz.style.bottom = "20%";
+    bloc_photo_quiz.style.width = "1000px";
+    bloc_photo_quiz.style.height = "calc(1000px*0.56)";   
+    bloc_photo_quiz.style.transform = "translate(-50%, 0%)";
+    croix_quiz.style.display = "flex";
+    text_info_imagequiz.style.display = "flex";
+    text_info_imagequiz.innerHTML = text1;
+    info_quiz_logo.style.filter = "blur(1.5rem)";
+    info_quiz_desc.style.filter = "blur(1.5rem)";
+    quiz_logo_anim.style.filter = "blur(1.5rem)";
+    info_quiz.style.filter = "blur(1.5rem)";
+})
+
+croix_quiz.addEventListener('click', function(){
+    bouton_fleche_gauche_quiz.style.display = "none";
+    bouton_fleche_droite_quiz.style.display = "none";
+    bloc_photo_quiz.style.position = "absolute";
+    bloc_photo_quiz.style.bottom = "30px";
+    bloc_photo_quiz.style.left = "50%";
+    bloc_photo_quiz.style.width = "600px";
+    bloc_photo_quiz.style.height = "calc(600px*0.56)";  
+    bloc_photo_quiz.style.transform = "translate(-50%, -5%)"; 
+    croix_quiz.style.display = "none";
+    photo_quiz.style.backgroundImage = "url(Images/quiz1.png)";
+    text_info_imagequiz.style.display = "none";
+    info_quiz_logo.style.filter = "blur(0)";
+    info_quiz_desc.style.filter = "blur(0)";
+    quiz_logo_anim.style.filter = "blur(0)";
+    info_quiz.style.filter = "blur(0)";
+})
